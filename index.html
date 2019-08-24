@@ -9,6 +9,7 @@
 			}
 			#about {
 			  text-align: center;
+			  padding: 0 15%;
 			}
 			#name {
 				font-weight: 250;
@@ -16,6 +17,9 @@
 			.card {
 				padding: 5% 5%;
 				margin: 2% 2%;
+			}
+			.card-title {
+				font-size: 30px;
 			}
 			#me {
 				border-radius: 50%;
@@ -33,17 +37,8 @@
 			#bio {
 				text-align: center;
 			}
-			footer {
-				display: flex;
-				align-items: center;
-				padding: 20px 0;
-			}
-			footer ul {
-				display: flex;
-				list-style-type: none;
-			}
-			footer ul li {
-				margin-left: 16px;
+			.card-subtitle {
+				padding: 3% 0;
 			}
 		</style>
 	</head>
@@ -62,19 +57,26 @@
 			</div>
 			<div id="about">
 				<p>
-					Hey! I'm currently a UC Berkeley junior majoring in MechE and minoring in EECS. I made this website to have all of my engineering projects up on one place. I hope you enjoy reading about them as much as I enjoyed building them! 
+					Hey! I'm currently a UC Berkeley junior majoring in MechE and minoring in EECS. I made this website to have all of my engineering projects up on one place. Hope you enjoy reading about them!
 				</p>
 			</div>
 			  <p><br></p>
 		      <div class="row hidden-md-up">
 
+		      	<div class="col-md-4">
+		          <div class="card">
+		            <div class="card-block">
+		              <a href="#" class="card-title">Arduino Projects</a>
+		              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+		            </div>
+		          </div>
+		        </div>
+
 		        <div class="col-md-4">
 		          <div class="card">
 		            <div class="card-block">
-		              <h4 class="card-title">Arduino Projects</h4>
-		              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-		              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
-		              <a href="#" class="card-link">link</a>
+		              <a href="#" class="card-title">Gitlet</a>
+		              <p class="card-text p-y-1">Smaller version of the Git version control system</p>
 		            </div>
 		          </div>
 		        </div>
@@ -82,64 +84,44 @@
 		        <div class="col-md-4">
 		          <div class="card">
 		            <div class="card-block">
-		              <h4 class="card-title">Solar-Powered Drone</h4>
-		              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-		              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
-		              <a href="#" class="card-link">link</a>
-		            </div>
-		          </div>
-		        </div>
-
-		        <div class="col-md-4">
-		          <div class="card">
-		            <div class="card-block">
-		              <h4 href="#" class="card-title">Gitlet</h4>
-		              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+		              <a href="#" class="card-title">Solar Powered Drone</a>
 		              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
 		            </div>
 		          </div>
 		        </div>
 
-		      </div><br>
-		      <div class="row">
-		        <div class="col-md-4">
-		          <div class="card">
-		            <div class="card-block">
-		              <h4 class="card-title">Card title</h4>
-		              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-		              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
-		              <a href="#" class="card-link">link</a>
-		            </div>
-		          </div>
-		        </div>
-		        <div class="col-md-4">
-		          <div class="card">
-		            <div class="card-block">
-		              <h4 class="card-title">Card title</h4>
-		              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-		              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
-		              <a href="#" class="card-link">link</a>
-		            </div>
-		          </div>
-		        </div>
-		        <div class="col-md-4">
-		          <div class="card">
-		            <div class="card-block">
-		              <h4 class="card-title">Card title</h4>
-		              <h6 class="card-subtitle text-muted">Support card subtitle</h6>
-		              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
-		              <a href="#" class="card-link">link</a>
-		            </div>
-		          </div>
-		        </div>
 		      </div>
 
-		      <footer>
-			    <ul>
-			      <li><a href="https://www.linkedin.com/in/kylepedersen17/"><i class="fa fa-linkedin-square fa-2x"></i></a></li>
-			      <li><a href = "mailto: kylepedersen@berkeley.edu"><i class="fa fa-envelope-square fa-2x"></i></a></li>
-			    </ul>
-	  		</footer>
+		      <div class="row">
+
+		        <div class="col-md-4">
+		          <div class="card">
+		            <div class="card-block">
+		              <a href="#" class="card-title">3D Printed Windmill</a>
+		              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+		            </div>
+		          </div>
+		        </div>
+
+				<div class="col-md-4">
+		          <div class="card">
+		            <div class="card-block">
+		              <a href="#" class="card-title">Case Revolution</a>
+		              <p class="card-text p-y-1">An online business I started that sold iPhone cases & T-Shirts of popular internet memes</p>
+		            </div>
+		          </div>
+		        </div>
+
+		        <div class="col-md-4">
+		          <div class="card">
+		            <div class="card-block">
+		              <a href="#" class="card-title">Solidworks Modeling</a>
+		              <p class="card-text p-y-1">Some quick example text to build on the card title .</p>
+		            </div>
+		          </div>
+		        </div>
+
+		      </div>
 		</div>
 
 	</body>
