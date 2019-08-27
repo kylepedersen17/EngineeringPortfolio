@@ -1,0 +1,37 @@
+body {
+	padding: 3% 22%;
+}
+
+h2 {
+	text-align: center;
+}
+
+iframe {
+	display: flex;
+	align-items: center;
+}
+
+p {
+	text-align: justify;
+}
+
+p img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h4 {
+	text-align: center;
+	text-transform: 5%;
+}
+
+#soundimgs {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#api #turing{
+	text-transform: capitalize;
+}
