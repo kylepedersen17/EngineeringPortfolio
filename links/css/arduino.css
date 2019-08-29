@@ -39,3 +39,22 @@ h1 {
 #api #turing{
 	text-transform: capitalize;
 }
+
+.figure {
+	padding: 5px 20px;
+	width: 60%;
+	height: 50%;
+	margin: 0 auto;
+}
+
+#lightpic {
+	height: 60%;
+	width: 60%;
+	margin: 0 18%;
+}
+
+#potimg {
+	height: 60%;
+	width: 60%;
+	margin: 0 20%;
+}

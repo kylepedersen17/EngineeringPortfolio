@@ -11,16 +11,6 @@ iframe {
 	align-items: center;
 }
 
-p {
-	text-align: justify;
-}
-
-p img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 h5 {
 	text-align: center;
 	text-transform: 5%;
@@ -30,12 +20,20 @@ h1 {
 	text-align: center;
 }
 
-#soundimgs {
+#cadpics {
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
-#api #turing{
-	text-transform: capitalize;
+img	{
+	height: 90%;
+	width: 90%;
+	padding-left: 5%;
+}
+
+p {
+	padding-left: 5%;
+	padding-top: 1%;
 }

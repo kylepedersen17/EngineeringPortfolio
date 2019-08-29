@@ -11,16 +11,6 @@ iframe {
 	align-items: center;
 }
 
-p {
-	text-align: justify;
-}
-
-p img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 h5 {
 	text-align: center;
 	text-transform: 5%;
@@ -30,12 +20,14 @@ h1 {
 	text-align: center;
 }
 
-#soundimgs {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.threee {
+	padding: 1% 1%;
 }
 
-#api #turing{
-	text-transform: capitalize;
+.twooo {
+	padding: 1% 1%;
+}
+
+#tattooprob {
+	padding: 2% 2%;
 }
