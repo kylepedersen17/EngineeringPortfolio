@@ -12,12 +12,41 @@
 		<h1>Arduino Projects</h1>
 
 		<div id="light">
-			<h3 class="text-muted">Motion Detecting LED Light</h3>
+			<h3 class="text-muted">Current/Future Projects (updating as I progress)</h3>
+			<h5 class="text-muted">Web Server API Speaker</h5>
+			<p id="api">
+				<strong>What I've finished so far: </strong>I am not sure why I incorporated Kanye in this (I guess I'm just a big fan?), but I read about the quote API and found it to be a good test for the concept I was trying to prove with this device. As of now, I have created the webpage from which the quote is generated and have configured the Arduino's own web server that is hosted on the Ethernet shield. The difficulty I last ran into was how to send the quote from the Google Chrome console to the Arduino IDE - essentially, once I can somehow get the quote to print out on the Arduino's serial monitor, I can easily parse it and run it through the Talkie text-to-speech libary that will be outputted on the speaker I plan on installing on the device.
+			</p>
+			<div class="row">
+				<img class="col-md-6" src="images/quoteone.jpg">
+				<img class="col-md-6" src="images/quotetwo.jpg">
+			</div>
+			<figcaption class="figure-caption text-center">This is the webpage that I built that uses a Kanye quote API handled with jQuery that updates upon every click</figcaption>
+
+			<div class="row">
+		            <img id="ethernet" class="mx-auto d-block" src="images/ethernet.jpg">  
+		            <figcaption id="ethernetcap" class="figure-caption">The ethernet shield is attached on top of the Arduino and is what allows me to run the web server to pass in and out data to the Arduino</figcaption>
+		    </div>
+
+			<p id="api">
+				<strong>What I have left to do: </strong>Once I get over the obstacle of getting the API-generated quote into the Arduino's environment, I'll install the speaker and having the open-source Talkie text-to-speech library have the speaker say the quote out loud. After this, I plan on either 3D-printing or CNC milling a device housing, on which I will place the output speaker and also a light up matrix LED light that will illuminate when the speaker is activated.
+			</p>
+
+			<h5 class="text-muted">Addition Turing Machine</h5>
+			<p id="turing">
+				&nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas sed tempus urna et pharetra pharetra massa. Varius vel pharetra vel turpis nunc eget lorem dolor. Porttitor rhoncus dolor purus non enim. Commodo quis imperdiet massa tincidunt. At volutpat diam ut venenatis tellus in metus vulputate. Diam donec adipiscing tristique risus nec feugiat in fermentum. Semper eget duis at tellus at urna. Ullamcorper morbi tincidunt ornare massa eget egestas purus. Tristique senectus et netus et malesuada fames.
+			</p>
+		</div>
+		<hr style="height:1px;border:none;color:#333;background-color:#333;" />
+		<h3 class="text-muted">Past Projects</h3>
+
+		<div id="light">
+			<h5 class="text-muted">Motion Detecting LED Light</h5>
 
 			<div class="row">
 				<img class="col-lg-6 threee" id="ppro" src='images/light.jpg' width="300">
 				<p class="col-lg-6 threee" id="about1">
-					&nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas sed tempus urna et pharetra pharetra massa. Varius vel pharetra vel turpis nunc eget lorem dolor. Porttitor rhoncus dolor purus non enim. Commodo quis imperdiet massa tincidunt. At volutpat diam ut venenatis tellus in metus vulputate. Diam donec adipiscing tristique risus nec feugiat in fermentum. Semper eget duis at tellus at urna. Ullamcorper morbi tincidunt ornare massa eget egestas purus. Tristique senectus et netus et malesuada fames.
+					<strong>About: </strong>This project was appealing to me because it incorporated many different components into one central device - it had four main components: an ultrasonic sensor, a button, a potentiometer, and an RGB LED light. The ultrasonic sensor would be continuously reading a distance value, and when the distance value was smaller than a certain value (i.e. when your hand was up close), the LED would then turn on or off (depending on the previous on/off state of the LED). The device also supported dimming and brightening the light when the potentiometer was turned. Perhaps the most interesting part of the project in my opinion was the RGB light’s ability to change color when the button was pressed. I programmed this capability by storing different red, green, and blue values in distinct arrays and switched the LED state when the button was pressed.
 				</p>
 			</div>
 
@@ -27,22 +56,26 @@
 			</div>
 			<hr>
 			<p id="about2">
-				&nbsp; Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Fermentum dui faucibus in ornare. Cras pulvinar mattis nunc sed blandit. Vehicula ipsum a arcu cursus vitae congue mauris. Duis ut diam quam nulla porttitor massa id neque aliquam. Nam libero justo laoreet sit amet cursus sit. Lectus urna duis convallis convallis tellus id interdum velit laoreet. Pretium fusce id velit ut tortor pretium viverra. Aenean sed adipiscing diam donec adipiscing tristique. Vitae sapien pellentesque habitant morbi. Vitae auctor eu augue ut lectus arcu bibendum at. Risus sed vulputate odio ut enim blandit volutpat maecenas. Nec nam aliquam sem et tortor consequat. Neque laoreet suspendisse interdum consectetur libero id faucibus. Vulputate eu scelerisque felis imperdiet proin. Sed velit dignissim sodales ut eu sem integer. Semper quis lectus nulla at volutpat diam ut. Accumsan tortor posuere ac ut. Eget nunc lobortis mattis aliquam faucibus.
+				<strong>Project challenges: </strong>The main difficulty I had with this project was figuring out how to ensure that 1) the ultrasonic sensor would provide enough time to allow one’s hand to turn on the light and 2) the LED would remain on. Also, both the LED and Ultrasonic sensor had several wires and resistors that would disrupt the entire device's circuitry, so I had to be meticulous while debugging and isolate each component into sub-problems until the LED and sensor were functioning as expected.
+ 
+			</p>
+			<p id="about2">
+				<strong>What I learned: </strong>The most amazing thing about Arduino is that the components themselves are not connected at all yet interact with one another seamlessly. For example, the potentiometer has zero connection to the LED, yet when the potentiometer is adjusted, its voltage output is passed through the microcontroller and through the LED as an input signal. This project process emphasized to me that there is not necessarily a need for components themselves to be connected, but as long as there are signals being communicated, that is powerful enough to control a machine!
 			</p>
 		</div>
 		<hr style="height:1px;border:none;color:#333;background-color:#333;" />
 
 		<div id="light">
-			<h3 class="text-muted">Speed of Sound Detector</h3>
+			<h5 class="text-muted">Speed of Sound Detector</h5>
 
 			<div class="row">
 				<img class="col-lg-6 threee" id="ppro" src='images/sound.jpg' width="300">
 				<img class="col-lg-6 threee" id="ppro" src='images/numbers.jpg' width="300">
 			</div>
-			<figcaption class="figure-caption">A caption for the above image.</figcaption>
+			<figcaption class="figure-caption">This device took the ultrasonic sensor's output and printed its MPH conversion on the serial monitor.</figcaption>
 			<hr>
 			<p id="about1">
-				&nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas sed tempus urna et pharetra pharetra massa. Varius vel pharetra vel turpis nunc eget lorem dolor. Porttitor rhoncus dolor purus non enim. Commodo quis imperdiet massa tincidunt. At volutpat diam ut venenatis tellus in metus vulputate. Diam donec adipiscing tristique risus nec feugiat in fermentum. Semper eget duis at tellus at urna. Ullamcorper morbi tincidunt ornare massa eget egestas purus. Tristique senectus et netus et malesuada fames.
+				<strong>About: </strong>This was really the first Arduino project I embarked on that wasn't just a "Hello World" project (i.e. making a motor turn or an LED blink once). The ultrasonic sensor would be constantly reading a distance value by bouncing a signal off of the wall, and it was my task to then convert its SONAR output value with to miles per hour which would then be printed out on the serial monitor. The finished product was remarkable accurate: the observed value of around 772 MPH was just 0.61% off of 767.3 MPH, the actual speed of sound in MPH. However, this is negligible because the reference distance I used of 6 inches would mean achieving 767.3 MPH would be an adjusted sensor position of a fraction of an inch.
 			</p>
 			<hr>
 			<div class="iframe-container" align="center">
@@ -50,45 +83,13 @@
 			</div>
 			<hr>
 			<p id="about2">
-				&nbsp; Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Fermentum dui faucibus in ornare. Cras pulvinar mattis nunc sed blandit. Vehicula ipsum a arcu cursus vitae congue mauris. Duis ut diam quam nulla porttitor massa id neque aliquam. Nam libero justo laoreet sit amet cursus sit. Lectus urna duis convallis convallis tellus id interdum velit laoreet. Pretium fusce id velit ut tortor pretium viverra. Aenean sed adipiscing diam donec adipiscing tristique. Vitae sapien pellentesque habitant morbi. Vitae auctor eu augue ut lectus arcu bibendum at. Risus sed vulputate odio ut enim blandit volutpat maecenas. Nec nam aliquam sem et tortor consequat. Neque laoreet suspendisse interdum consectetur libero id faucibus. Vulputate eu scelerisque felis imperdiet proin. Sed velit dignissim sodales ut eu sem integer. Semper quis lectus nulla at volutpat diam ut. Accumsan tortor posuere ac ut. Eget nunc lobortis mattis aliquam faucibus.
+				<strong>Project challenges: </strong>This was the first time that I used the ultrasonic sensor, so configuring the wiring was a bit tedious. Also, the ultrasonic sensor's values also were prone to rapid fluctuation, so using the read values and converting them to a steady scale took a few trials to get a good base average reading from the ultrasonic sensor.
 			</p>
-		</div>
-
-		<hr style="height:1px;border:none;color:#333;background-color:#333;" />
-		<div id="light">
-			<h3 class="text-muted">Potentiometer-Controlled Motor</h3>
-
-			<div class="row">
-				<img class="col-lg-6 threee" id="ppro" src='images/poten.jpg' width="300">
-				<p class="col-lg-6 threee" id="about1">
-				&nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas sed tempus urna et pharetra pharetra massa. Varius vel pharetra vel turpis nunc eget lorem dolor. Porttitor rhoncus dolor purus non enim. Commodo quis imperdiet massa tincidunt. At volutpat diam ut venenatis tellus in metus vulputate. Diam donec adipiscing tristique risus nec feugiat in fermentum. Semper eget duis at tellus at urna. Ullamcorper morbi tincidunt ornare massa eget egestas purus. Tristique senectus et netus et malesuada fames.
-			</p>
-			</div>
-			<hr>
-			<hr>
-			<div class="iframe-container" align="center">
-				<iframe src="https://www.youtube.com/embed/iVgdSGnjumg" allowfullscreen></iframe>
-			</div>
-			<hr>
 			<p id="about2">
-				&nbsp; Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Fermentum dui faucibus in ornare. Cras pulvinar mattis nunc sed blandit. Vehicula ipsum a arcu cursus vitae congue mauris. Duis ut diam quam nulla porttitor massa id neque aliquam. Nam libero justo laoreet sit amet cursus sit. Lectus urna duis convallis convallis tellus id interdum velit laoreet. Pretium fusce id velit ut tortor pretium viverra. Aenean sed adipiscing diam donec adipiscing tristique. Vitae sapien pellentesque habitant morbi. Vitae auctor eu augue ut lectus arcu bibendum at. Risus sed vulputate odio ut enim blandit volutpat maecenas. Nec nam aliquam sem et tortor consequat. Neque laoreet suspendisse interdum consectetur libero id faucibus. Vulputate eu scelerisque felis imperdiet proin. Sed velit dignissim sodales ut eu sem integer. Semper quis lectus nulla at volutpat diam ut. Accumsan tortor posuere ac ut. Eget nunc lobortis mattis aliquam faucibus.
+				<strong>What I learned: </strong>The big idea in this project was being able to make use of an input signal I may not necessarily be interested in and convert it to meaningful data - in this case, it was taking the SONAR reading from the ultrasonic sensor and converting it to MPH. Signals are everywhere in mechatronics, and this was a good first step in not only making a useful end product but also being able to convert data into its final desired form.
 			</p>
 		</div>
 
-		<hr style="height:1px;border:none;color:#333;background-color:#333;" />
-
-		<div id="light">
-			<h3 class="text-muted">Current/Future Projects (updating as I progress)</h3>
-			<h5 class="text-muted">Web Server API Speaker</h5>
-			<p id="api">
-				&nbsp; Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Fermentum dui faucibus in ornare. Cras pulvinar mattis nunc sed blandit. Vehicula ipsum a arcu cursus vitae congue mauris. Duis ut diam quam nulla porttitor massa id neque aliquam. Nam libero justo laoreet sit amet cursus sit. Lectus urna duis convallis convallis tellus id interdum velit laoreet. Pretium fusce id velit ut tortor pretium viverra. Aenean sed adipiscing diam donec adipiscing tristique. Vitae sapien pellentesque habitant morbi. Vitae auctor eu augue ut lectus arcu bibendum at. Risus sed vulputate odio ut enim blandit volutpat maecenas. Nec nam aliquam sem et tortor consequat. Neque laoreet suspendisse interdum consectetur libero id faucibus. Vulputate eu scelerisque felis imperdiet proin. Sed velit dignissim sodales ut eu sem integer. Semper quis lectus nulla at volutpat diam ut. Accumsan tortor posuere ac ut. Eget nunc lobortis mattis aliquam faucibus.
-			</p>
-
-			<h5 class="text-muted">Addition Turing Machine</h5>
-			<p id="turing">
-				&nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas sed tempus urna et pharetra pharetra massa. Varius vel pharetra vel turpis nunc eget lorem dolor. Porttitor rhoncus dolor purus non enim. Commodo quis imperdiet massa tincidunt. At volutpat diam ut venenatis tellus in metus vulputate. Diam donec adipiscing tristique risus nec feugiat in fermentum. Semper eget duis at tellus at urna. Ullamcorper morbi tincidunt ornare massa eget egestas purus. Tristique senectus et netus et malesuada fames.
-			</p>
-		</div>
 
 	</div>
 </body>
