@@ -32,9 +32,17 @@
 				<strong>What I have left to do: </strong>Once I get over the obstacle of getting the API-generated quote into the Arduino's environment, I'll install the speaker and having the open-source Talkie text-to-speech library have the speaker say the quote out loud. After this, I plan on either 3D-printing or CNC milling a device housing, on which I will place the output speaker and also a light up matrix LED light that will illuminate when the speaker is activated.
 			</p>
 
-			<h5 class="text-muted">Addition Turing Machine</h5>
+			<hr style="height:1px;border:none;color:#333;background-color:#333;" />
+
+			<h5 class="text-muted">Addition Turing Machine</h5> 
 			<p id="turing">
-				&nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas sed tempus urna et pharetra pharetra massa. Varius vel pharetra vel turpis nunc eget lorem dolor. Porttitor rhoncus dolor purus non enim. Commodo quis imperdiet massa tincidunt. At volutpat diam ut venenatis tellus in metus vulputate. Diam donec adipiscing tristique risus nec feugiat in fermentum. Semper eget duis at tellus at urna. Ullamcorper morbi tincidunt ornare massa eget egestas purus. Tristique senectus et netus et malesuada fames.
+				After reading about Alan Turing and his Turing machine model, I wanted to make a physical Turing machine that behaved as he proposed, with a physical head that would read over and manipulate a tape. Though I have not actually built anything for this project yet, my preliminary idea for it has, for the most part, been decently-fleshed out.
+			</p>
+			<p id="api">
+				As is shown above, I am going to represent each bit as a 3D-printed flap so that as the Arduino slides back and forth on its sliding belt, it will be able to detect each flap as either a 1 or a 0 - which will be represented as distances so that the ultrasonic sensor will be able to give a distance value if the flap is there or not. Once the hardware is built, it is then up to the state diagram's algorithm to properly adjust the state of the flap.
+			</p>
+			<p id="api">
+				Essentially, this is what the theoretical Turing machine does: it reads a tape (the 3D printed flaps) and either rewrites what each bit represents (switching the flap) or passes over a bit to another bit. Each Turing machine solves its own distinct problem, and, in this case, the Turing machine I am building specifically will successfully be able to perform addition on two 5-bit binary integers.
 			</p>
 		</div>
 		<hr style="height:1px;border:none;color:#333;background-color:#333;" />

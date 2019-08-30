@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Gitlet</title>
+	<title>CAD Modeling</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/solidworks.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -11,56 +11,68 @@
 		<a id="backbtn" class="btn btn-primary" href="#" onclick="history.go(-1)" role="button">Back</a>
 		<h1>CAD Models</h1>
 
-			<p id="about1">
-				&nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas sed tempus urna et pharetra pharetra massa. Varius vel pharetra vel turpis nunc eget lorem dolor. 
+			<p class="text-justify" id="about1">
+				&nbsp; Though there were some CAD models in the other projects, these CAD models were just to practice honing some of the essential Solidworks tools necessary for CAD modeling, including extrusion, revolving, sweeping, lofting, surface modeling with knitting, and incorporating patterns for more parts with repeated features. These were modeled with Solidworks in my Engineering 26 class at Berkeley.
 			</p>
 			<hr>
 			<div id="cadpics">
 			<div>
-				<img class="text-center" id="lightimg" src='images/cadpics/screwdriver.jpg' width="300">
-				<p id="about1">
-					<strong>Screwdriver:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				</p>
+				<h5 class="text-muted">Screwdriver</h5>
+				<img class="mx-auto d-block" id="lightimg" src='images/cadpics/screwdriver.jpg' width="300">
+				<p class="text-center" id="about1"> This screwdriver consists of its assembled red plastic handle and its metal chisel. The handle was a simple revolve of half of its cross section, while the metal part used lofting to make its chiseled end and another loft to connect the metal shaft to the chisel.</p>
 				<hr>
 			</div>
 
 			<div>
-				<img class="text-center" id="lightimg" src='images/cadpics/gear.jpg' width="300">
-				<p id="about1">
-					<strong>Gear:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				</p>
+				<h5 class="text-muted">Gear</h5>
+				<img class="mx-auto d-block" id="lightimg" src='images/cadpics/gear.jpg' width="300">
+				<p class="text-center" id="about1"> For the gear, I first made the large circular part with its center hole and then used the circular pattern twice: once for the six inner holes and again for the exterior teeth.</p>
 				<hr>
 			</div>
 
 			<div>
-				<img class="text-center" id="lightimg" src='images/cadpics/clip.jpg' width="300">
-				<p id="about1">
-					<strong>Paperclip:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				</p>
+				<h5 class="text-muted">Box Assembly</h5>
+				<div class="row">
+					<img class="col-md-6" src='images/cadpics/box.jpg' width="300">
+					<img class="col-md-6" src='images/cadpics/exploded.jpg' width="300">
+				</div>
+				<p class="text-center" id="about1"> There are 5 labeled parts for this box, but in reality, I mirrored the top and bottom and made the minimal inclusion of the bottom's divot. After assembling the box, I exploded the assembly and labeled each part to show visually how each part is positioned.</p>
 				<hr>
 			</div>
 
 			<div>
-				<img class="text-center" id="lightimg" src='images/cadpics/soap.jpg' width="300">
-				<p id="about1">
-					<strong>Soap:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				</p>
+				<h5 class="text-muted">Paperclip</h5>
+				<img class="mx-auto d-block" id="lightimg" src='images/cadpics/clip.jpg' width="300">
+				<p class="text-center" id="about1"> This model required drawing the 2D curved line and using the sweep tool to give the paperclip it's 3D shape.</p>
+				<hr> 
+			</div>
+
+			<div>
+				<h5 class="text-muted">Soap</h5>
+				<img class="mx-auto d-block" id="lightimg" src='images/cadpics/soap.jpg' width="300">
+				<p class="text-center" id="about1"> I really enjoyed making this part because it introduced to me an entirely new paradigm of CAD modeling that centered around filling in the intersection of surfaces with the knit tool. I also filleted the edges for a smoother finish and added the text on top.</p>
 				<hr>
 			</div>
 
 			<div>
-				<img class="text-center" id="lightimg" src='images/cadpics/spring.jpg' width="300">
-				<p id="about1">
-					<strong>Spring:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				</p>
+				<h5 class="text-muted">Spring</h5>
+				<img class="mx-auto d-block" id="lightimg" src='images/cadpics/spring.jpg' width="300">
+				<p class="text-center" id="about1"> To make the spring, I first made the base with a simple revolve and mirrored it to the other end; then, I used the helix tool to fill in the middle spring part.</p>
 				<hr>
 			</div>
 
 			<div>
-				<img class="text-center" id="lightimg" src='images/cadpics/handlebars.jpg' width="300">
-				<p id="about1">
-					<strong>Bike Handlebars:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				</p>
+				<h5 class="text-muted">Handlebars</h5>
+				<img class="mx-auto d-block" id="lightimg" src='images/cadpics/handlebars.jpg' width="300">
+				<p class="text-center" id="about1"> This model used a 3D line that adhered to the general shape of the handlebars, and, ultimately, I used a circular sweep to make the handbars thicker.</p>
+				<hr>
+			</div>
+
+			<div>
+				<h5 class="text-muted">2D Shop Drawings</h5>
+				<img class="mx-auto d-block border border-dark" id="drawone" src='images/cadpics/drawingone.jpg' width="300">
+				<img class="mx-auto d-block border border-dark" src='images/cadpics/drawingtwo.jpg' width="300">
+				<p class="text-center" id="about1">These are some shop drawings I made after 3D modeling - with the standard isometric, top, front, and right views. Though Solidworks does a good job of dimensioning, I did go back and delete some of the redundant dimensions it included and added auxiliary views & section views when necessary.</p>
 			</div>
 			
 		</div>
