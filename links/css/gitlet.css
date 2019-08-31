@@ -2,6 +2,14 @@ body {
 	padding: 3% 22%;
 }
 
+code {
+    background-color: #eee;
+    border-radius: 3px;
+    font-family: courier, monospace;
+    padding: 0 3px;
+}
+
+
 #backbtn {
 	margin-top: 3%
 }
