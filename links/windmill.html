@@ -12,14 +12,17 @@
 		<h1>3D Printed Windmill</h1>
 
 		<div id="gitlet">
-			<h5 class="text-muted">Project Overview</h5>
+			
 
 			<img class="mx-auto d-block threee" id="pro" src='images/windmillpics/windmill.jpg' width="90%">
 
 			<p id="about1">
-				&nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas sed tempus urna et pharetra pharetra massa. Varius vel pharetra vel turpis nunc eget lorem dolor. 
+				<h5 class="text-muted">Project Overview</h5>
+				&nbsp; This 3D printed windmill was the final group project for my Engineering 26 class - which taught 3D modeling principles using Solidworks. For this project, the major tools used were Solidworks to initially create a 3D model of what the windmill would look like before fabrication. After the 3D model looked up to par, we converted each turbine part to a .STL file and 3D printed it with a plastic filament. After getting the parts 3D printed, we glued the 3 turbine base parts together (bottom, middle, and top motor housing) and glued that to the black plastic square base. Lastly, once the cylindrical motor was placed into the top motor housing, we slipped the blade onto to the rotating motor axle by way of the centered blade hole. 
+
 			</p>
 			<hr>
+
 			<h5 class="text-muted">CAD Modeling</h5>
 
 			<div class="row">
@@ -31,30 +34,44 @@
 				<img class="col-md-6 threee" id="pro" src='images/windmillpics/top.jpg' width="80%">
 			</div>
 
-			<p id="about1">
-				&nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas sed tempus urna et pharetra pharetra massa. Varius vel pharetra vel turpis nunc eget lorem dolor. 
-			</p>
 			<hr>
 			
 			<h5 class="text-muted">Assembly</h5>
 			<img class="mx-auto d-block threee" id="lightimg" src='images/windmillpics/assembly.jpg' width="80%">
-			<p id="about1">
-				&nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas sed tempus urna et pharetra pharetra massa. Varius vel pharetra vel turpis nunc eget lorem dolor. 
-			</p>
 			<hr>
 
-			<h5 class="text-muted">Testing</h5>
-			<img class="mx-auto d-block threee" id="lightimg" src='images/windmillpics/stiffness.jpg' width="70%">
-			<p id="about1">
-				&nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas sed tempus urna et pharetra pharetra massa. Varius vel pharetra vel turpis nunc eget lorem dolor. 
-			</p>
-
+			<h5 class="text-muted">Turbine Stiffness Test</h5>
 			<div class="row">
-				<img class="col-md-6 threee" id="ppro" src='images/windmillpics/vvi.jpg' width="80%">
-				<img class="col-md-6 threee" id="pro" src='images/windmillpics/pvi.jpg' width="80%">
+				<figure class="figure col-md-6 threee">
+				  <img id="ppro" src='images/windmillpics/stiffness.jpg' width="100%">
+				  <figcaption class="figure-caption">It appears on the Voltage vs. Current chart, there is a quadratic fit to the plotted data, even though there is only one point left of the vertex. The highest power was at the vertex and quickly declined once the voltage passed 2.5 V and the current fell below 0.16 Amperes.</figcaption>
+				</figure>
+			<p class="col-md-6" id="stiffnessp">
+				&nbsp;  We then tested the stiffness of the turbine by attaching weights to a string set with a hook to the side of the turbine structure and read the displacement in mm with a displacement measuring tool. This test was meant to measure how sturdy and resistance to external forces the turbine was. In increments of .1 kilograms, we attached each weight to the string such that the weights attached to the string pulled down on the side of the turbine gave a small but measurable displacement. Once we added .1 kg 10 times, we then increased each weight addition to 1 kg and got a final reading of 4,781 Newtons per meter for the structure of our turbine. 
+			</p>
 			</div>
+
+			<hr>
+			<h5 class="text-muted">Blade Efficiency Test</h5>
 			<p id="about1">
-				&nbsp; Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas sed tempus urna et pharetra pharetra massa. Varius vel pharetra vel turpis nunc eget lorem dolor. 
+				&nbsp; We first tested the maximum power output of the turbine by setting up a fan a few feet in front of the turbine and ensured that the wind speed was about 25 mph. This power test was meant to measure how much power (or joules of energy per second) the turbine outputted for a controlled wind speed. We had control of the current and voltage being supplied to the motor, and we tested different combinations while taking note of the respective current/voltage points before seeing a maximum power output given a certain pairing of voltage and current.
+			</p>
+			<div class="row">
+				<figure class="figure col-md-6 threee">
+				  <img id="ppro" src='images/windmillpics/vvi.jpg' width="100%">
+				  <figcaption class="figure-caption">It appears on the Voltage vs. Current chart, there is a quadratic fit to the plotted data, even though there is only one point left of the vertex. The highest power was at the vertex and quickly declined once the voltage passed 2.5 V and the current fell below 0.16 Amperes.</figcaption>
+				</figure>
+				<figure class="figure col-md-6 threee">
+				  <img id="ppro" src='images/windmillpics/pvi.jpg' width="100%">
+				  <figcaption class="figure-caption">We can see that on the Power vs. Current plot, there is a somewhat visible upward trend as current is increased, which makes sense due to the P=IV relationship—though it is not exactly linear because the V was also fluctuating. By trial, we could see that the maximum power for of .439 was a result of a current of .169 Amperes. </figcaption>
+				</figure>
+			</div>
+			<hr>
+			<p id="about2">
+				<strong>Project Challenges: </strong>Our group in this project had one less member than the other groups in the class, so with just the four of us, we learned to 
+			</p>
+			<p id="about2">
+				<strong>What I Learned: </strong>Our group in this project had one less member than the other groups in the class, so with just the four of us, we learned to 
 			</p>
 
 		</div>

@@ -8,8 +8,10 @@ code {
     font-family: courier, monospace;
     padding: 0 3px;
 }
-
-
+ 
+#stiffnessp {
+	padding-top: 2%;
+}
 #backbtn {
 	margin-top: 3%
 }
