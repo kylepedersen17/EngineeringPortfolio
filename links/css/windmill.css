@@ -2,7 +2,7 @@ body {
 padding: 5% 5%;
 }
 
-@media only screen and (max-width: 40em) { 
+@media only screen and (max-width: 600px) { 
     body {
 	  margin:0px;	
       padding:0px;
