@@ -12,43 +12,6 @@
 		<h1>Arduino Projects</h1>
 
 		<div id="light">
-			<h3 class="text-muted">Current/Future Projects (updating as I progress)</h3>
-			<h5 class="text-muted">Web Server API Speaker</h5>
-			<p id="api">
-				<strong>What I've finished so far: </strong>I am not sure why I incorporated Kanye in this (I guess I'm just a big fan?), but I read about the quote API and found it to be a good test for the concept I was trying to prove with this device. As of now, I have created the webpage from which the quote is generated and have configured the Arduino's own web server that is hosted on the Ethernet shield. The difficulty I last ran into was how to send the quote from the Google Chrome console to the Arduino IDE - essentially, once I can somehow get the quote to print out on the Arduino's serial monitor, I can easily parse it and run it through the Talkie text-to-speech libary that will be outputted on the speaker I plan on installing on the device.
-			</p>
-			<div class="row">
-				<img class="col-md-6" src="images/quoteone.jpg">
-				<img class="col-md-6" src="images/quotetwo.jpg">
-			</div>
-			<figcaption class="figure-caption text-center">This is the webpage that I built that uses a Kanye quote API handled with jQuery that updates upon every click</figcaption>
-
-			<div class="row">
-		            <img id="ethernet" class="mx-auto d-block" src="images/ethernet.jpg">  
-		            <figcaption id="ethernetcap" class="figure-caption">The ethernet shield is attached on top of the Arduino and is what allows me to run the web server to pass in and out data to the Arduino</figcaption>
-		    </div>
-
-			<p id="api">
-				<strong>What I have left to do: </strong>Once I get over the obstacle of getting the API-generated quote into the Arduino's environment, I'll install the speaker and having the open-source Talkie text-to-speech library have the speaker say the quote out loud. After this, I plan on either 3D-printing or CNC milling a device housing, on which I will place the output speaker and also a light up matrix LED light that will illuminate when the speaker is activated.
-			</p>
-
-			<hr style="height:1px;border:none;color:#333;background-color:#333;" />
-
-			<h5 class="text-muted">Addition Turing Machine</h5> 
-			<p id="turing">
-				After reading about Alan Turing and his Turing machine model, I wanted to make a physical Turing machine that behaved as he proposed, with a physical head that would read over and manipulate a tape. Though I have not actually built anything for this project yet, my preliminary idea for it has, for the most part, been decently-fleshed out.
-			</p>
-			<p id="api">
-				As is shown above, I am going to represent each bit as a 3D-printed flap so that as the Arduino slides back and forth on its sliding belt, it will be able to detect each flap as either a 1 or a 0 - which will be represented as distances so that the ultrasonic sensor will be able to give a distance value if the flap is there or not. Once the hardware is built, it is then up to the state diagram's algorithm to properly adjust the state of the flap.
-			</p>
-			<p id="api">
-				Essentially, this is what the theoretical Turing machine does: it reads a tape (the 3D printed flaps) and either rewrites what each bit represents (switching the flap) or passes over a bit to another bit. Each Turing machine solves its own distinct problem, and, in this case, the Turing machine I am building specifically will successfully be able to perform addition on two 5-bit binary integers.
-			</p>
-		</div>
-		<hr style="height:1px;border:none;color:#333;background-color:#333;" />
-		<h3 class="text-muted">Past Projects</h3>
-
-		<div id="light">
 			<h5 class="text-muted">Motion Detecting LED Light</h5>
 
 			<div class="row">
@@ -96,6 +59,34 @@
 			<p id="about2">
 				<strong>What I learned: </strong>The big idea in this project was being able to make use of an input signal I may not necessarily be interested in and convert it to meaningful data - in this case, it was taking the SONAR reading from the ultrasonic sensor and converting it to MPH. Signals are everywhere in mechatronics, and this was a good first step in not only making a useful end product but also being able to convert data into its final desired form.
 			</p>
+		</div>
+
+		<hr style="height:1px;border:none;color:#333;background-color:#333;" />
+
+		<div id="light">
+			<h3 class="text-muted">On Hold Currently</h3>
+			<h5 class="text-muted">Web Server API Speaker</h5>
+			<p id="api">
+				<strong>What I've finished so far: </strong>I am not sure why I incorporated Kanye in this (I guess I'm just a big fan?), but I read about the quote API and found it to be a good test for the concept I was trying to prove with this device. As of now, I have created the webpage from which the quote is generated and have configured the Arduino's own web server that is hosted on the Ethernet shield. The difficulty I last ran into was how to send the quote from the Google Chrome console to the Arduino IDE - essentially, once I can somehow get the quote to print out on the Arduino's serial monitor, I can easily parse it and run it through the Talkie text-to-speech libary that will be outputted on the speaker I plan on installing on the device.
+			</p>
+			<div class="row">
+				<img class="col-md-6" src="images/quoteone.jpg">
+				<img class="col-md-6" src="images/quotetwo.jpg">
+			</div>
+			<figcaption class="figure-caption text-center">This is the webpage that I built that uses a Kanye quote API handled with jQuery that updates upon every click</figcaption>
+
+			<div class="row">
+		            <img id="ethernet" class="mx-auto d-block" src="images/ethernet.jpg">  
+		            <figcaption id="ethernetcap" class="figure-caption">The ethernet shield is attached on top of the Arduino and is what allows me to run the web server to pass in and out data to the Arduino</figcaption>
+		    </div>
+
+			<p id="api">
+				<strong>What I have left to do: </strong>Once I get over the obstacle of getting the API-generated quote into the Arduino's environment, I'll install the speaker and having the open-source Talkie text-to-speech library have the speaker say the quote out loud. After this, I plan on either 3D-printing or CNC milling a device housing, on which I will place the output speaker and also a light up matrix LED light that will illuminate when the speaker is activated.
+			</p>
+
+			<hr style="height:1px;border:none;color:#333;background-color:#333;" />
+
+			
 		</div>
 
 
