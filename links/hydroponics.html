@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Solar-Powered Drone</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/drone.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<a class="btn btn-primary" id="backbtn" href="#" onclick="history.go(-1)" role="button">Back</a>
+		<h1>Autonomous Hydroponics Robot</h1>
+
+		<div id="gitlet">
+			<div class="row text-center">
+				<img class="mx-auto d-block threee" src='images/dronepics/dronepic.jpg' width="80%">
+			</div>
+			<h5 class="text-muted">Project Overview</h5>
+			<p>
+				&nbsp; This solar-powered drone was the capstone project for the yearlong PLTW Engineering Research & Design course I took as a senior in high school. The class gave us the latitude to design and build any engineering project we wanted, and after brainstorming different ideas, we came upon the idea to build a drone that satisfied the following constraints:
+
+
+				<ul>
+					<li>The drone must be wirelessly controlled</li>
+					<li>The drone must be able to control & monitor yaw, pitch, and roll</li>
+					<li>The drone must dock to a chargin interface</li>
+					<li>The drone must be able to deliver a 1 lb. payload 0.5 miles away within 3 ft. of its destination</li>
+					<li>The charging station must use clean energy</li>
+					<li>The charging station must charge the drone wirelessly</li>
+				</ul>
+			</p>
+
+
+			<div class="row text-center">
+				<img class="mx-auto d-block threee" src='images/dronepics/flying.jpg' width="80%">
+			</div>
+			<figcaption class="figure-caption">In the end, the drone was able to pick up and drop off the payload while flying properly, but there were energy problems with the charging station.</figcaption>
+
+			<p>
+				&nbsp; The team consisted of me and three other classmates, and we used the entire first semester to plan out our design for the drone and begin ordering parts, while the spring semester was alloted for drone building and testing. With so many tasks to be completed and much organization necessary, I took along the role of being the project manager along with being responsible for designing, building, and testing the payload component. The others, respectively, were mostly in charge of building and tweaking the drone kit, configuring the large solar panel we ordered, and setting up the wireless charging station. We also helped each other out, but there was always one main person in charge of each project subcomponent.
+			</p>
+
+			<hr>
+			
+			<h5 class="text-muted">Drone Planning</h5>
+
+			<p id="about1">
+				&nbsp; This project really helped our engineering skills develop because we were essentially on our own with designing and assembling the project. We did, however, have access to our teacher, who gave us more high-level recommendations, and weekly meetings with Boeing mentors who could assist with more technical questions.
+			</p>
+			<p>
+				&nbsp; As project manager, I was in charge of the weekly planning of the project (which I kept track of with a Gantt chart) as well as sending update emails to our teacher and the Boeing mentors. 
+			</p>
+			<div class="row">
+				<img class="mx-auto d-block threee border border-dark" src='images/dronepics/gantt.jpg' width="80%">
+			</div>
+			<figcaption class="figure-caption">The Gantt chart above helped us align our expected dates of completion with our actual dates of completion, and it helped serve as a way of enforcing rough dealines for each project</figcaption>
+
+			<div class="row">
+				<img class="mx-auto d-block threee border border-dark" src='images/dronepics/partslist.jpg' width="80%">
+			</div>
+			<figcaption class="figure-caption">&nbsp; I also made sure that the part procurement and budget was taken care of. For example, below is part of the parts list spreadsheet - we were alloted $1000 for the project, and in the end, we met the budget.</figcaption>
+
+			<hr>
+
+			<h5 class="text-muted">Drone Design</h5>
+			<p id="about1">
+				&nbsp; 
+			</p>
+
+			<div class="row">
+					  <img src="images/dronepics/loadiso.jpg" class="col-md-4 figure-img img-fluid rounded three" alt="A generic square placeholder image with rounded corners in a figure.">
+					  <img src="images/dronepics/bottomload.jpg" class="col-md-4 figure-img img-fluid rounded three" alt="A generic square placeholder image with rounded corners in a figure.">
+					  <img src="images/dronepics/sideload.jpg" class="col-md-4 figure-img img-fluid rounded three" alt="A generic square placeholder image with rounded corners in a figure.">
+			</div>
+			<figcaption class="figure-caption">I used Autodesk Inventor to make the 2nd design of the payload, which I 3D printed. The first part broke, so I had to made the base thicker.</figcaption>
+
+			<p id="about1">
+				&nbsp; This was the 2nd payload design, which was much simpler and featured an electromagnet with the printed base. Since I don't have access to my high school Google Drive, I could only salvage the final PowerPoint, but the first prototype was very unreliable once I built it. It reatured an end claw that would protrude downwards along a rack and pinion gear setup and recede so that the drone could land.
+			</p>
+
+			<div class="row">
+					  <img src="images/dronepics/magnet.jpg" class="col-md-4 figure-img img-fluid rounded three" alt="A generic square placeholder image with rounded corners in a figure.">
+					  <img src="images/dronepics/holder2.jpg" class="col-md-4 figure-img img-fluid rounded three" alt="A generic square placeholder image with rounded corners in a figure.">
+					  <img src="images/dronepics/loadremote.jpg" class="col-md-4 figure-img img-fluid rounded three" alt="A generic square placeholder image with rounded corners in a figure.">
+			</div>
+			<figcaption class="figure-caption">The electromagnet was attached to wiring that connected to a remotely controlled remote that would turn the magnet on and off. This could support any payload with a metal component on its top, such as this test bag of water.</figcaption>
+			<hr>
+			<h5 class="text-muted">Drone Testing</h5>
+			<p id="about1">
+				&nbsp; Below is a few documentation examples of the tests we ran. The first refers to the testing of the Drone's power consumption. The way we ran this was by establishing if the power consumption was constant or variable over 5 minutes and checked the power at 50%, 75%, and 100% power intervals. We achieved this by isolating the drone into 5 parts and used a multimeter to measure current and voltage.
+			</p>
+
+			<div class="text-center row">
+				<figure id="partslist" class="mx-auto d-block figure">
+				  <img src="images/dronepics/energy.jpg" class="figure-img img-fluid border border-dark two" alt="A generic square placeholder image with rounded corners in a figure.">
+				  <img src="images/dronepics/batterytest.jpg" class="figure-img img-fluid border border-dark two" alt="A generic square placeholder image with rounded corners in a figure.">
+				</figure>
+
+			</div>
+
+			<p id="about1">
+				&nbsp; Along with strictly quantitative tests, we also ran tests that required both qualitative and quantitative observations, too. These next two tests were testing the solar panel's functionality and the wireless charging stations efficiency, respectively. We see here that both the solar panel and wireless charging configurations were working as expected throughout the tests.
+			</p>
+
+			<div class="text-center row">
+				<figure id="partslist" class="mx-auto d-block figure">
+					  <img src="images/dronepics/solartest.jpg" class="figure-img img-fluid border border-dark two" alt="A generic square placeholder image with rounded corners in a figure.">
+					  <img src="images/dronepics/chargetest.jpg" class="figure-img img-fluid border border-dark two" alt="A generic square placeholder image with rounded corners in a figure.">
+				</figure>
+			</div>
+
+		</div>
+
+	</div>
+</body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</html>
