@@ -64,10 +64,9 @@
 		<hr style="height:1px;border:none;color:#333;background-color:#333;" />
 
 		<div id="light">
-			<h3 class="text-muted">On Hold Currently</h3>
 			<h5 class="text-muted">Web Server API Speaker</h5>
 			<p id="api">
-				<strong>What I've finished so far: </strong>I am not sure why I incorporated Kanye in this (I guess I'm just a big fan?), but I read about the quote API and found it to be a good test for the concept I was trying to prove with this device. As of now, I have created the webpage from which the quote is generated and have configured the Arduino's own web server that is hosted on the Ethernet shield. The difficulty I last ran into was how to send the quote from the Google Chrome console to the Arduino IDE - essentially, once I can somehow get the quote to print out on the Arduino's serial monitor, I can easily parse it and run it through the Talkie text-to-speech libary that will be outputted on the speaker I plan on installing on the device.
+				I read about the Kanye quote API and found it to be a good test for figuring out how to communicate between a webpage and an Arduino. The webpage from which the quote is generated sends the quote to the Arduino web server that is hosted on the Ethernet shield. The quote can then be processed by the Arduino.
 			</p>
 			<div class="row">
 				<img class="col-md-6" src="images/quoteone.jpg">
@@ -79,10 +78,6 @@
 		            <img id="ethernet" class="mx-auto d-block" src="images/ethernet.jpg">  
 		            <figcaption id="ethernetcap" class="figure-caption">The ethernet shield is attached on top of the Arduino and is what allows me to run the web server to pass in and out data to the Arduino</figcaption>
 		    </div>
-
-			<p id="api">
-				<strong>What I have left to do: </strong>Once I get over the obstacle of getting the API-generated quote into the Arduino's environment, I'll install the speaker and having the open-source Talkie text-to-speech library have the speaker say the quote out loud. After this, I plan on either 3D-printing or CNC milling a device housing, on which I will place the output speaker and also a light up matrix LED light that will illuminate when the speaker is activated.
-			</p>
 
 			<hr style="height:1px;border:none;color:#333;background-color:#333;" />
 
