@@ -25,13 +25,12 @@
 			<div class="iframe-container" align="center">
 				<iframe src="https://www.youtube.com/embed/4LC_oPC37gQ" allowfullscreen></iframe>
 			</div>
-			<hr>
 			<p id="about2">
 				<strong>Project challenges: </strong>The main difficulty I had with this project was figuring out how to ensure that 1) the ultrasonic sensor would provide enough time to allow one’s hand to turn on the light and 2) the LED would remain on. Also, both the LED and Ultrasonic sensor had several wires and resistors that would disrupt the entire device's circuitry, so I had to be meticulous while debugging and isolate each component into sub-problems until the LED and sensor were functioning as expected.
  
 			</p>
 			<p id="about2">
-				<strong>What I learned: </strong>The most amazing thing about Arduino is that the components themselves are not connected at all yet interact with one another seamlessly. For example, the potentiometer has zero connection to the LED, yet when the potentiometer is adjusted, its voltage output is passed through the microcontroller and through the LED as an input signal. This project process emphasized to me that there is not necessarily a need for components themselves to be connected, but as long as there are signals being communicated, that is powerful enough to control a machine!
+				<strong>What I learned: </strong>Configuring an Arduino setup is interesting because the components themselves are not connected at all yet interact with one another seamlessly. For example, the potentiometer has zero connection to the LED, yet when the potentiometer is adjusted, its voltage output is passed through the microcontroller and through the LED as an input signal. Looking back, this was a core idea I picked up in my engineering courses later in college. There is not necessarily a need for components themselves to be connected, but as long as there are signals being communicated, that is powerful enough to control an even larger mechanism.
 			</p>
 		</div>
 		<hr style="height:1px;border:none;color:#333;background-color:#333;" />
@@ -66,7 +65,7 @@
 		<div id="light">
 			<h5 class="text-muted">Web Server API Speaker</h5>
 			<p id="api">
-				I read about the Kanye quote API and found it to be a good test for figuring out how to communicate between a webpage and an Arduino. The webpage from which the quote is generated sends the quote to the Arduino web server that is hosted on the Ethernet shield. The quote can then be processed by the Arduino.
+				The Kanye quote API generates a random quote said at one point by Kanye West, and I found it to be a good test for figuring out how to communicate between a webpage and an Arduino. The webpage from which the quote is generated sends the quote to the Arduino web server that is hosted on the Ethernet shield. The quote can then be processed by the Arduino.
 			</p>
 			<div class="row">
 				<img class="col-md-6" src="images/quoteone.jpg">

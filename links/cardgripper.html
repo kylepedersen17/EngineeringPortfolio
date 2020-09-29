@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Solar-Powered Drone</title>
+	<title>Credit Card Gripper</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/drone.css">
+	<link rel="stylesheet" type="text/css" href="css/arduino.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
@@ -11,97 +11,39 @@
 		<a class="btn btn-primary" id="backbtn" href="#" onclick="history.go(-1)" role="button">Back</a>
 		<h1>Credit Card Gripper</h1>
 
-		<div id="gitlet">
-			<h1>
-				&nbsp; <strong>Currently editing page...</strong>
-			</h1>
-			<div class="row text-center">
-				<img class="mx-auto d-block threee" src='images/dronepics/dronepic.jpg' width="80%">
-			</div>
-			<h5 class="text-muted">Project Overview</h5>
-
-
-			<div class="row text-center">
-				<img class="mx-auto d-block threee" src='images/dronepics/flying.jpg' width="80%">
-			</div>
-			<figcaption class="figure-caption">In the end, the drone was able to pick up and drop off the payload while flying properly, but there were energy problems with the charging station.</figcaption>
-
-			<p>
-				&nbsp; The team consisted of me and three other classmates, and we used the entire first semester to plan out our design for the drone and begin ordering parts, while the spring semester was alloted for drone building and testing. With so many tasks to be completed and much organization necessary, I took along the role of being the project manager along with being responsible for designing, building, and testing the payload component. The others, respectively, were mostly in charge of building and tweaking the drone kit, configuring the large solar panel we ordered, and setting up the wireless charging station. We also helped each other out, but there was always one main person in charge of each project subcomponent.
+		<div id="light">
+			<p id="about1">
+				I worked on this project with a small group as a part of the Enabletech club at UC Berkeley, a club that designs and builds assistive products for people with disabilities. I was fortunate to join a project that aimed to help a local woman with limited arm mobility have a more self-sufficient and independent experience using ATM machines. Our goal was to design a device for her that was capable of gripping, inserting, and taking out credit/debit cards from ATMs.
+			</p>
+			<p id="about1">
+				My group firstly consulted with our client about her needs and visions for a potential product. After coming up with several ideas, we decided on the design ideas listed below. We then met more times with our client for her to test our prototypes and give us feedback for future improvements. After a few months of brainstorming, prototyping, and testing, we presented a final design in December, 2019, which worked while testing at an ATM with her, although there were minor improvements that were completed in January, 2020 while I was away for a semester break at an internship, including slightly changing the angle of the gripper mouth to face towards the handle. 
 			</p>
 
 			<hr>
-			
-			<h5 class="text-muted">Drone Planning</h5>
-
-			<p id="about1">
-				&nbsp; This project really helped our engineering skills develop because we were essentially on our own with designing and assembling the project. We did, however, have access to our teacher, who gave us more high-level recommendations, and weekly meetings with Boeing mentors who could assist with more technical questions.
-			</p>
-			<p>
-				&nbsp; As project manager, I was in charge of the weekly planning of the project (which I kept track of with a Gantt chart) as well as sending update emails to our teacher and the Boeing mentors. 
-			</p>
+			<h5 >Final Design</h5>
 			<div class="row">
-				<img class="mx-auto d-block threee border border-dark" src='images/dronepics/gantt.jpg' width="80%">
+				<img class="col-lg-6 threee" id="ppro" src='images/finalgripper.jpg' width="300">
+				<img class="col-lg-6 threee" id="ppro" src='images/grippercad.png' width="300">
+				
 			</div>
-			<figcaption class="figure-caption">The Gantt chart above helped us align our expected dates of completion with our actual dates of completion, and it helped serve as a way of enforcing rough dealines for each project</figcaption>
 
-			<div class="row">
-				<img class="mx-auto d-block threee border border-dark" src='images/dronepics/partslist.jpg' width="80%">
-			</div>
-			<figcaption class="figure-caption">&nbsp; I also made sure that the part procurement and budget was taken care of. For example, below is part of the parts list spreadsheet - we were alloted $1000 for the project, and in the end, we met the budget.</figcaption>
-
+			<figcaption class="figure-caption">This was the final design iteration. It worked by sliding one hand into the handle as shown and using the other arm's wrist to press down on the lever. In the neutral position, the spring-driven lever held the credit card tightly and was released as the ATM took the card. Once complete, the gripper fit just enough to grab the card and bring it back. Compared to the leftmost design of the 3 below images, we ended up making the grip more rounded with edge fillets. We also decreased the height of the handle, added grip around the handle, and concealed the spring.</figcaption>
 			<hr>
 
-			<h5 class="text-muted">Drone Design</h5>
-			<p id="about1">
-				&nbsp; 
-			</p>
-
+			<h5 >Three Preliminary Designs</h5>
 			<div class="row">
-					  <img src="images/dronepics/loadiso.jpg" class="col-md-4 figure-img img-fluid rounded three" alt="A generic square placeholder image with rounded corners in a figure.">
-					  <img src="images/dronepics/bottomload.jpg" class="col-md-4 figure-img img-fluid rounded three" alt="A generic square placeholder image with rounded corners in a figure.">
-					  <img src="images/dronepics/sideload.jpg" class="col-md-4 figure-img img-fluid rounded three" alt="A generic square placeholder image with rounded corners in a figure.">
+				<img class="col-lg-4 threee" id="ppro" src='images/gripper.jpg' width="300">
+				<img class="col-lg-4 threee" id="ppro" src='images/2nddesign.png' width="300">
+				<img class="col-lg-4 threee" id="ppro" src='images/bistable.png' width="300">
 			</div>
-			<figcaption class="figure-caption">I used Autodesk Inventor to make the 2nd design of the payload, which I 3D printed. The first part broke, so I had to made the base thicker.</figcaption>
 
-			<p id="about1">
-				&nbsp; This was the 2nd payload design, which was much simpler and featured an electromagnet with the printed base. Since I don't have access to my high school Google Drive, I could only salvage the final PowerPoint, but the first prototype was very unreliable once I built it. It reatured an end claw that would protrude downwards along a rack and pinion gear setup and recede so that the drone could land.
-			</p>
-
-			<div class="row">
-					  <img src="images/dronepics/magnet.jpg" class="col-md-4 figure-img img-fluid rounded three" alt="A generic square placeholder image with rounded corners in a figure.">
-					  <img src="images/dronepics/holder2.jpg" class="col-md-4 figure-img img-fluid rounded three" alt="A generic square placeholder image with rounded corners in a figure.">
-					  <img src="images/dronepics/loadremote.jpg" class="col-md-4 figure-img img-fluid rounded three" alt="A generic square placeholder image with rounded corners in a figure.">
-			</div>
-			<figcaption class="figure-caption">The electromagnet was attached to wiring that connected to a remotely controlled remote that would turn the magnet on and off. This could support any payload with a metal component on its top, such as this test bag of water.</figcaption>
+			<figcaption class="figure-caption">Above are three initial design iterations, with the leftmost spring-loaded lever design being the final design route we ended up choosing. The middle design is similar to the final design, except it has a U-shaped clamp. The rightmost design featured a link mechanism that converted the lever motion to a grasping motion at the end.</figcaption>
 			<hr>
-			<h5 class="text-muted">Drone Testing</h5>
-			<p id="about1">
-				&nbsp; Below is a few documentation examples of the tests we ran. The first refers to the testing of the Drone's power consumption. The way we ran this was by establishing if the power consumption was constant or variable over 5 minutes and checked the power at 50%, 75%, and 100% power intervals. We achieved this by isolating the drone into 5 parts and used a multimeter to measure current and voltage.
-			</p>
-
-			<div class="text-center row">
-				<figure id="partslist" class="mx-auto d-block figure">
-				  <img src="images/dronepics/energy.jpg" class="figure-img img-fluid border border-dark two" alt="A generic square placeholder image with rounded corners in a figure.">
-				  <img src="images/dronepics/batterytest.jpg" class="figure-img img-fluid border border-dark two" alt="A generic square placeholder image with rounded corners in a figure.">
-				</figure>
-
-			</div>
 
 			<p id="about1">
-				&nbsp; Along with strictly quantitative tests, we also ran tests that required both qualitative and quantitative observations, too. These next two tests were testing the solar panel's functionality and the wireless charging stations efficiency, respectively. We see here that both the solar panel and wireless charging configurations were working as expected throughout the tests.
+				This was the first group engineering project I worked on where I was directly involved in creating a custom product for a client while receiving feedback along the way. It was really endearing to see the feedback and have the conversations we had during the design process, and I enjoyed having a personable experience that connected all of our design work back to someone who would use our product in their day-to-day life.
 			</p>
-
-			<div class="text-center row">
-				<figure id="partslist" class="mx-auto d-block figure">
-					  <img src="images/dronepics/solartest.jpg" class="figure-img img-fluid border border-dark two" alt="A generic square placeholder image with rounded corners in a figure.">
-					  <img src="images/dronepics/chargetest.jpg" class="figure-img img-fluid border border-dark two" alt="A generic square placeholder image with rounded corners in a figure.">
-				</figure>
-			</div>
-
+		
 		</div>
 
-	</div>
-</body>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</html>
+		
