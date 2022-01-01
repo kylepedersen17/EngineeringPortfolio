@@ -23,7 +23,6 @@ font-size: 130%;
 /*====================================*/
 
 #about {
-text-align: center;
 padding: 0 15%;
 }
 
@@ -54,6 +53,3 @@ font-size: 25px;
 font-weight: 120;
 }
 
-#bio {
-text-align: center;
-}
