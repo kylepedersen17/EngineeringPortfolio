@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Autonomous Window Cleaner</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/arduino.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<a class="btn btn-primary" id="backbtn" href="#" onclick="history.go(-1)" role="button">Back</a>
+		<h1>Autonomous Window Cleaner</h1>
+
+		<div id="light">
+			<div class="iframe-container" align="center">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/Df_9U8uVw64" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<hr>
+			<p id="about1">
+				This project was completed in the fall 2021 semester as a part of the UC Berkeley ME102B class (Mechatronics Design) — I worked on it with my project partner in a group of two. We sought to provide a prototype aimed at cleaning windows without the requirement of a human. We viewed this as a way to improve worker safety and productivity. Initially, we envisioned our cleaner to be suspended at each corner by four cables. This rope would be winched in and out by four separate gearmotors allowing the robot to move. The cleaner would push against the window by manipulating its center of gravity. In the end, because of cost and difficult kinematics we opted for a cartesian system with linear motion in the x axis (along the building) and a winch to raise and lower the cleaner in the y axis (up and down the building). Additionally, we used powered fans to press the cleaner against the window instead of a weight shift mechanism. 
+			</p>
+			
+
+			<hr>
+			<h5 >Final Design</h5>
+			<div class="row">
+				<img class="col-lg-12 threee" id="ppro" src='images/cleaner/fig1.png' width="300">
+			</div>
+
+
+			<div class="row">
+				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/fig2.png' width="300">
+				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/fig3.png' width="300">
+				
+			</div>
+
+			<hr>
+
+			<h5 >Wiring Schematic & Finite State Machine</h5>
+			<div class="row">
+				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/wiring.png' width="300">
+				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/fsm.png' width="300">
+			</div>
+
+
+			<figcaption class="figure-caption">The wiring schematic (left) features the two brushless motors powered by a LIPO battery. They are controlled by a single PWM pin. There are four h-bridges: one for the bipolar stepper motor, one for the winch motor, one for the dc cleaner motor, and one for the peristaltic pump. The latter two are used effectively as relays, since they are more compact. Lastly, the bottom right features the ultrasonic sensor, idle button, and limit switches. The finite state machine is pictured to the right, and its functionality is explained below.</figcaption>
+			<hr>
+			<p id="about1">
+				The finite state machine enabled the cleaner's functionality to be easily programmed in a logical way using switch-case logic and event checker and service functions. Here are the states:
+			</p>
+			<ul>
+				<li><strong>Idling: </strong>When the device is turned on, it is in the idling state. Nothing is actuated, but when the push button is pressed, it enters the <strong>Pull Cables</strong> state.</li>
+				<li><strong>Pull Cables: </strong>This state acts as a vertical calibration state. The winch motor is activated, pulling up the cleaning box via its string until the top of the box hits the vertical limit switch — when this occurs, it enters the <strong>Calibrate Left</strong> state. Throughout the <strong>Pull Cables</strong> state, the winch motor's encoder is used to implement a PI controller for the winch motor's angular velocity. This allows the winch motor to wind up even under the weight of the cleaner box.</li>
+				<li><strong>Calibrate Left: </strong>In this state, the winch motor is turned off, and the stepper motor moves the crane left until the horizontal limit switch is hit. Once achieved, the stepper motor shuts off, and the device enters the <strong>Clean Down</strong> state.</li>
+				<li><strong>Clean Down: </strong>In this state, the cleaner motor is turned on, activating the foam rollers. The sprayer and brushless fans are activated along with the winch motor in the downward direction.</li>
+				<li><strong>Disengage Down: </strong>If an intermediate window divider is detected by the ultrasonic sensor, the fans, sprayer, and rollers are turned off, and the box is moved down. It is not pressed against the window due to the fans being turned off, allowing it to move across a window divider. After the specified distance is travelled via the winch encoder, the <strong>Clean Down</strong> state is reactivated.</li>
+				<li><strong>Move Up: </strong> If the total building height has been travelled, and the ultrasonic sensor detects the ground, the cleaner, sprayer, and fans are turned off, and the winch pulls the box back up to the top (until the vertical limit switch). The stepper motor then moves right to the next column, and the process continues.</li>
+			</ul>
+			<hr>
+
+			<h5 >CAD Modeling</h5>
+			<div class="row">
+				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/cad1.png' width="300">
+				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/cad2.png' width="300">
+			</div>
+			<div class="row">
+				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/cad3.png' width="300">
+				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/cad4.png' width="300">
+			</div>
+
+			<figcaption class="figure-caption">Pictured above are initial CAD designs. The top row was the first design iteration, and the second row is the final design iteration beforee fabrication. The first design of the box did not have the brushless fans, as the issue with pressing the box against the window was not realized yet. The foam rollers with the belt drive was kept, with the DC motor moved to the corner. The water tank idea was switched to using a water bottle in the corner, which allowed the side walls to be uniform in height. The crane design largely remained the same, but another rail was added through the stepper motor for stability. The winch motor was also moved to the top rather than being inside for gear ratio purposes.</figcaption>
+
+			<hr>
+			<div class="row">
+				<img class="col-lg-4 threee" id="ppro" src='images/cleaner/drone_props.png' width="300">
+				<img class="col-lg-4 threee" id="ppro" src='images/cleaner/sprayer_ultra.png' width="300">
+				<img class="col-lg-4 threee" id="ppro" src='images/cleaner/bottom.png' width="300">
+			</div>
+
+			<figcaption class="figure-caption">Pictured from left to right: one of the brushless fan motors, the exterior sprayer nozzle with the ultrasonic sensor (taped for testing), and the foam rollers with belt drive.</figcaption>
+
+			<hr>
+			<p id="about1">
+				A strategy that worked well is isolating certain subsystems and repeatedly testing them on their own so that when the entire device was integrated, more of the focus could be on assessing the performance of the device as a whole. While this did work—we reliably had each subsystem working well—we integrated and tested the entire device a bit too late, and overlooked certain aspects of its mechanical performance. An example is the weight distribution issue of the cleaner. We spent so much time building, designing, and testing each individual subsystem, that when we fully integrated everything, we found that the cleaner had too much weight on its left side. Had we known this earlier, we could have moved around certain components. 
+			</p>
+		</div>
+
+		

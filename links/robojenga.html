@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RoboJenga</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/arduino.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<a class="btn btn-primary" id="backbtn" href="#" onclick="history.go(-1)" role="button">Back</a>
+		<h1>RoboJenga</h1>
+
+		<div id="light">
+			<div class="iframe-container" align="center">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/TtrprR35NpY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<hr>
+			<h5 >Final Design</h5>
+			<div class="row">
+				<img class="col-lg-12 threee" id="ppro" src='images/jenga/annotateddesign.png' width="300">
+			</div>
+
+			<figcaption class="figure-caption">This project was worked on with me and two others for EECS C106A (Intro to Robotics) in November and December, 2021. The finished project was able to align the stick to the side of the tower using the AR tag. It was then able to determine an appropriate middle block to push out based on the load cell's force feedback. The right arm's claw then successfully approached the middle block, pulled it out, and placed it on top of the tower.</figcaption>
+
+			<hr>
+
+			<p>We've successfully built, tested, and verified each phase of the project with moderate reliability. The development of each component was slow going and the integration of all phases was very challenging. The load cell sensor required calibration and the max force threshold needed to be determined experimentally. The offsets all needed to be excessively tuned in order for the system to operate reliably. The only lasting bug was related to MoveIt in that if the user progressed too quickly through the states it would cause straing movement behavior. Overall, we've managed to get Baxter to carefully push a jenga block out of the tower, pull the block out, and place it on top of the tower.</p>
+
+			<hr>
+
+			<h5 >Finite State Machine & Hardware/Software Node Map</h5>
+			<p>To tie all of these parts together we used a single master node that had two functioning parts: a master state machine called “Game Runner” and a Python class that encapsulated all of the functionality of the system and exposed it through an API to the state machine. The game runner state machine describes the discrete dynamics of Baxter playing Jenga</p>
+			<div class="row">
+				<img class="col-lg-6 threee" id="ppro" src='images/jenga/jengafsm.png' width="300">
+				<img class="col-lg-6 threee" id="ppro" src='images/jenga/rosnodes.png' width="300">
+				<ul>
+					<li><strong>Align State: </strong>Align the stick on the load cell to the center of the AR tag. Transition to the Next Block state.</li>
+					<li><strong>Next Block: </strong>Given the known static transform from the AR tag to each Jenga block, move to the next block and transition to the Attempt Push state.</li>
+					<li><strong>Attempt Push: </strong>Using the load cell sensor to provide pushing force feedback, apply a slow push to the target jenga block. If the force applied is greater than the max force threshold, then abort the push and transition to the Abort Push state. Else, transition to the Next Block state.</li>
+					<li><strong>Abort Push: </strong>Stop pushing the block and retract the left arm. Transition to Next Block state.</li>
+					<li><strong>Align Claw: </strong>Request for the gripper to open, align the right arm to the left hand, and maneuver the claw towards the target block. Transition to Retract Stick.</li>
+					<li><strong>Retract Stick: </strong>Carefully pull back the left hand out of the tower. Transition to Grab Block.</li>
+					<li><strong>Grab Block: </strong>Request for the gripper to close. Transition to the Pull Block state.</li>
+					<li><strong>Pull Block: </strong>Carefully pull the block out of the tower. Transition to the Move to Stack state.</li>
+					<li>Move to Stack: <strong></strong>Maneuver the right hand upwards until the claw with the jenga block is over the jenga tower. Transition to Place Block state.</li>
+					<li><strong>Place Block: </strong>Request for the gripper to open and place the jenga block on top of the tower. If shutdown is requested, transition to the Shutdown state. Else, transition to the Claw Reset state.</li>
+					<li><strong>Shutdown: </strong>Exit RViz and quit all MoveIt processes. </li>
+					<li><strong>Claw Reset: </strong>Maneuver claw back to initial position.</li>
+				</ul>
+				
+			</div>
+			<hr>
+
+			<h5>Design Criteria</h5>
+			<p><strong>Tower Localization: </strong> In order to support various starting positions of both the robot arms and the tower, the system must be able to get the position of the tower relative to the robot. </p>
+			
+			<p> <strong>Block Selection: </strong> To keep the tower from toppling over during execution, the system must be able to intelligently select a block that does not require much force to remove. </p>
+			
+			<p><strong>Block Pushing/Stacking: </strong>For the system to place blocks on top of the tower, the robot must be able to hold the block, move it, and drop it. Rather than pushing it all the way through and then picking it up off the table to place it on the tower, the system must be able to play like a human does, pushing blocks part of the way out, then pulling the rest of the way. </p>
+			
+			<p><strong>Movement: </strong>The system must be able to move within a margin of error that allows it to single out a block and push it without pushing any of the blocks around it. </p>
+
+			<hr>
+
+			<div class="row">
+				<img class="col-lg-6 threee" id="ppro" src='images/jenga/CLAW.png' width="300">
+				<img class="col-lg-6 threee" id="ppro" src='images/jenga/STICK.png' width="300">
+			</div>
+			<div class="row">
+				<img class="col-lg-6 threee" id="ppro" src='images/jenga/CLAW2.png' width="300">
+				<img class="col-lg-6 threee" id="ppro" src='images/jenga/stick_electronics.png' width="300">
+			</div>
+
+			<figcaption class="figure-caption">Each arm had an enclosure box attached to its elbow (top left) where the ESP32 microcontrollers were held (bottom right) to connect the load cell and servo claw to ROS.</figcaption>
+
+			<hr>
+			<h5>Design Overview</h5>
+			<p><strong>AR Tag Detection: </strong> To implement tower localization, we decided to use AR tags and the cameras on the Baxter arms. This allowed us to quickly ascertain the position and orientation of the tower relative to the Baxter and kept the implementation time short relative to other options.</p>
+
+			<p><strong>Force Sensor/Stick: </strong> We decided to push out the block roughly halfway and have the right hand come from the other side to pull it out. To do so, we decided to use a poking stick on the left hand to push out the block. We also wished to include a load cell to provide force detection feedback from the stick, which interacted with the tower. This way, the left poking stick would be able to know which blocks were okay to push out without knocking down the tower. </p>
+
+			<p><strong>Motorized Gripper: </strong> To effectively pull the blocks out of the tower and stack them, we would need a gripper with sufficient grip strength and friction to keep the block from sliding out.</p>
+
+			<p> <strong>Built-In Movement Package: </strong> We planned on using a built-in movement package to plan the paths and control the movement of the Baxter arms. This reduced the complexity of the project and allowed us to focus on the more novel elements of the project.</p>
+			<hr>
+			<h5>Design Tradeoffs</h5>
+			<p> <strong>AR Tags vs. Custom Computer Vision Solution: </strong> We decided on AR tags mostly for their simplicity and our familiarity with them. We briefly considered using a machine learning model or some other image processing algorithm to detect the position and orientation of the tower from a raw image of the tower itself, but we had concerns about robustness to the different states the tower could be in (partially skewed, some blocks removed, blocks partially removed, etc.) as well as concerns about the time it would take to implement something complex. The system may be more visually compelling without an AR tag, but time did not permit us to implement anything more complex.</p>
+
+			<p> <strong>Using One vs. Two End Effectors: </strong> Initially, we were considering only using a single Baxter arm to do the entire Jenga solver. We thought using two hands would be more complex; however, not only would using one arm require potentially using more computer vision to locate a fallen block and pick it up, but it also would involve awkwardly wrapping the arm around the other side of the tower. We also naively thought that only programming a single arm would give us more available robots to work with, as we could potentially work using the Sawyer robots as well. We decided to use a two-armed approach because the right claw could be mirrored across the tower without having to use obstacle avoidance, and there were no awkward orientations seen by either of the arms along the way.</p>
+
+			<p> <strong>Off-The-Shelf vs. Custom Gripper: </strong> We knew from the outset that we would not be able to use Baxter’s included grippers because they would be too weak to reliable hold onto a block while removing it from the tower. This left us with the options of trying to design a custom gripper, which we attempted, and buying an off the shelf gripper. We had originally planned on designing a custom gripper with a load cell to detect if it was pulling too hard and force sensor to detect if it was gripping it tightly enough. We decided it would take too long to design a gripper strong enough and durable enough that could be 3D printed, so instead we bought a gripper that we were sure would be more than powerful enough. 
+
+			<p> <strong>MoveIt vs. Custom Movement Library</strong> We ultimately decided to use the MoveIt library as our path planner and controller. An alternative option would be to write our own path planner and controller, but this would have been too time consuming, and using MoveIt served us well in the end. To make MoveIt accurate enough, we needed to reduce the maximum joint velocity drastically. If we used our own controller we may have been able to find a solution that allowed the robot to move more quickly. Sending a bunch of successive commands to MoveIt could potentially overload it, so we needed to run each command slowly by pressing enter before each planning and execution stage. Furthermore, to achieve the desired dexterity (and to not knock over the tower), we set the speed on the MoveIt planner to be very slow. While this did help the end effectors be careful when interacting with the tower, there were stages where the speed did not matter. We did try implementing this idea, but we encountered some undesired behavior in the end.</p>
+			<hr>
+
+			<div class="row">
+				<img class="col-lg-4 threee" id="ppro" src='images/jenga/moveit.png' width="300">
+				<img class="col-lg-4 threee" id="ppro" src='images/jenga/aruco.png' width="300">
+				<img class="col-lg-4 threee" id="ppro" src='images/jenga/rviz.png' width="300">
+			</div>
+
+			<figcaption class="figure-caption">The MoveIt library (left) pictured on RViz, a 3D visualizer for Baxter. MoveIt allowed the end effectors to have a pre-written path planner for optimal control. The Aruco tag (center) also had to be precisely measured, as every millimeter counted when manipulating a Jenga block.</figcaption>
+
+			<hr>
+			<h5>Implementation</h5>
+			<p><strong>Aruco AR Tag Detection: </strong> We started by using the Alvar ROS package for detecting AR tags, but found that the library came with some severe limitations, namely that it was difficult to generate a specific size of an AR tag, which we needed in order to test all of the different tag placements and configurations that we wanted to test, and that the reading was less precise than we needed it to be. After asking for advice from TAs and peers we tried out the Aruco library. The library did not already have an open source ROS package and so we were required to implement our own ROS package. This worked pretty well, but still had some stability issues, so in addition to the AR tag node, we implemented a node that takes the moving average of a tf frame and publishes it. This gave us a very stable output frame that we could use to accurately align to the tower.</p>
+
+			<p><strong>Force Sensor/3D-Printed Stick: </strong>We used a load cell sensor, HX711 load cell amplifier, and esp32 microcontroller to detect forces applied to a jenga block. A max force threshold of .13 N was experimentally determined. The base of the stick would screw into the end of the left hand of the robot, and it had the load cell placed on it laterally. The actual stick piece was screwed into the load cell, and there was enough clearance such that the load cell had open space to minimally deflect. The load cell itself includes a wheatstone bridge that allows the signal to be amplified as the ESP was reading in the force values of the load cell. </p>
+
+			<p><strong>Off-the-Shelf Servo Powered Gripper: </strong>We decided to use the LewanSoul Mechanical Claw Big Claw Robot Gripper with 335MG Servo  instead of the default gripper on Baxter to achieve high reliability when gripping the jenga block. The gripper was placed on a 3D printed mount and screwed onto the right hand of Baxter. The gripper’s control input is connected to a PWM pin on an ESP32. </p>
+
+			<p><strong>Movement: </strong> To implement the movement necessary to play Jenga, we first used an AR tag to capture the position of the tower relative to the robot and then used static offsets from the initial position to generate targets for the end effectors at each state. The end effector frames were generated as static transforms from the hand frames. These static transforms were used to generate the target position for the hands which were then passed in to the motion planner. We use MoveIt to plan a path and then execute it. </p>
+
+			<p> <strong>Peripheral Integration: </strong> To integrate the external hardware with Baxter we used RS-232 protocol to allow the central PC to communicate with both esp32 microcontrollers. We used a four conductor cable connected to a RS-232 to UART converter device to allow communication between the PC and esp32. We then used a python serial library to receive and transmit data between the PC and esp32. The peripheral package contains gripper_server.py and push_peripheral.py nodes. The push_peripheral.py node receives load cell data and publishes it to a topic called /push_force. The jenga_bot.py node subscribes to the /push_force topic and uses the load cell data in the execute_careful_push function. The gripper_server.py receives requests from the jenga_bot.py node to close or open the gripper. </p>
+		</div>
+
+		
