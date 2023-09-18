@@ -1,154 +1,180 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Kyle Pedersen</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="portfolio.css">
-		<script src="https://unpkg.com/scrollreveal"></script>
-		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-	</head>
-	<body>
-		<div id="title" class="text-center">
-						<h1 id="name"> Kyle Pedersen</h1>
-						<p id="portfolio">Engineering Portfolio</p>
-					</div>
-		<div id="outside" class="container-fluid">
-			<div class="text-center">
-				<div class="text-center">
-					<p>
-						Hey! I'm a recent UC Berkeley graduate (December 2021) - I majored in mechanical engineering and minored in EECS. I made this website to have all of my engineering projects up on one place. I hope you enjoy reading about them!
-					</p>
-				</div>
-				<div id="icons">
-				      		<a id="lin" href="https://www.linkedin.com/in/kylepedersen17/" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
-				      		<a id="em" href = "mailto: kylepedersen18@gmail.com"><i class="fa fa-envelope-square fa-2x"></i></a>
-				</div>
-			
-			</div>
-			  <p><br></p>
-			  	<div class="row">
-			  	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 re">
-					<div class="card">
-					  <img class="card-img-top" src="links/images/cleaner/cleaner_main.png" alt="Card image">
-					  <div class="card-body">
-					    <h4 class="card-title">Autonomous Window Cleaner</h4>
-					    <p class="card-text">Cleaner uses horizontal crane to move along window and foam rollers with water sprayer to clean window.</p>
-					    <a href="links/windowcleaner.html" class="btn btn-primary stretched-link">See More</a>
-					  </div>
-					</div>
-				</div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyle Pedersen</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="portfolio.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+    <section id="title" class="text-center">
+        <h1 id="name">Kyle Pedersen</h1>
+        <p id="portfolio">Engineering Portfolio</p>
+        <p class="reduced-padding">
+            I'm a UC Berkeley M.S. graduate in controls/robotics (May '23). For my B.S. (Dec. '21), I majored in mechanical engineering and minored in EECS. I made this website to have all of my engineering projects up on one place. My GitHub is also linked below.
+        </p>
+        <div id="icons">
+            <a href="https://www.linkedin.com/in/kylepedersen17/" target="_blank" class="fa fa-linkedin-square fa-2x"></a>
+            <a href="mailto:kylepedersen18@gmail.com" class="fa fa-envelope-square fa-2x"></a>
+            <a href="https://github.com/kylepedersen17/" target="_blank" class="fa fa-github fa-2x"></a>
+        </div>
+    </section>
+    
+    <section class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 re">
+                    <div class="card">
+                      <img class="card-img-top" src="links/images/motionplanning.jpg" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">Motion Planning Algorithms (C++)</h4>
+                        <p class="card-text">C++ implementation of common planning algorithms (A-star, RRT, PRM) on toy grid with obstacles. </p>
+                        <a href="index.html" class="btn btn-primary stretched-link">See More</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 re">
+                    <div class="card">
+                      <img class="card-img-top" src="links/images/dronempc.jpg" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">Drone Swarm Path Planning</h4>
+                        <p class="card-text"> MPC algorithm for path planning with collision avoidance in drone swarms for light shows.</p>
+                        <a href="links/dronempc.html" class="btn btn-primary stretched-link">See More</a>
+                      </div>
+                    </div>
+                </div>
 
-				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 revt">
-		 			<div class="card">
-					  <img class="card-img-top" src="links/images/jenga/design.png" alt="Card image">
-					  <div class="card-body">
-					    <h4 class="card-title">RoboJenga</h4>
-					    <p class="card-text">Baxter robot capable of pushing out Jenga blocks and placing on top of tower.</p>
-					    <a href="links/robojenga.html" class="btn btn-primary">See More</a>
-					  </div>
-					</div>
-		 		</div>
-			  		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 re">
-					<div class="card">
-					  <img class="card-img-top" src="links/images/hydro.jpg" alt="Card image">
-					  <div class="card-body">
-					    <h4 class="card-title">Aeroponics Robot</h4>
-					    <p class="card-text">Lettuce-growing aeroponics robot that autonomously delivers nutrients to lettuce plants.</p>
-					    <a href="links/hydroponics.html" class="btn btn-primary stretched-link">See More</a>
-					  </div>
-					</div>
-				</div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 re">
+                    <div class="card">
+                      <img class="card-img-top" src="links/images/ballbeampic.jpg" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">Ball & Beam Balancing Controller</h4>
+                        <p class="card-text"> Compared 3 nonlinear controllers for real-world ball balancing device, using EKF for state estimation.</p>
+                        <a href="links/ballbeam.html" class="btn btn-primary stretched-link">See More</a>
+                      </div>
+                    </div>
+                </div>
 
-				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 revt">
-		 			<div class="card">
-					  <img class="card-img-top" src="links/images/CADpics.png" alt="Card image">
-					  <div class="card-body">
-					    <h4 class="card-title">CAD Modeling</h4>
-					    <p class="card-text">Pictured is the pong-pong ball launcher and the adjustable iPhone holder. Created with Solidworks.</p>
-					    <a href="links/solidworks.html" class="btn btn-primary">See More</a>
-					  </div>
-					</div>
-		 		</div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 re">
+                    <div class="card">
+                      <img class="card-img-top" src="links/images/cleaner/cleaner_main.png" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">Autonomous Window Cleaner</h4>
+                        <p class="card-text">Cleaner uses horizontal crane to move along window and foam rollers with water sprayer to clean window.</p>
+                        <a href="links/windowcleaner.html" class="btn btn-primary stretched-link">See More</a>
+                      </div>
+                    </div>
+                </div>
 
-			  	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 re">
-					<div class="card">
-					  <img class="card-img-top" src="links/images/finalgripper.jpg" alt="Card image">
-					  <div class="card-body">
-					    <h4 class="card-title">Credit Card Gripper</h4>
-					    <p class="card-text">Group project aimed at designing credit card gripper for client with limited hand mobility who wishes to have more freedom at the ATM.</p>
-					    <a href="links/cardgripper.html" class="btn btn-primary stretched-link">See More</a>
-					  </div>
-					</div>
-				</div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 revt">
+                    <div class="card">
+                      <img class="card-img-top" src="links/images/jenga/design.png" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">RoboJenga</h4>
+                        <p class="card-text">Baxter robot capable of pushing out Jenga blocks and placing on top of tower.</p>
+                        <a href="links/robojenga.html" class="btn btn-primary">See More</a>
+                      </div>
+                    </div>
+                </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 re">
+                    <div class="card">
+                      <img class="card-img-top" src="links/images/hydro.jpg" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">Aeroponics Robot</h4>
+                        <p class="card-text">Lettuce-growing aeroponics robot that autonomously delivers nutrients to lettuce plants.</p>
+                        <a href="links/hydroponics.html" class="btn btn-primary stretched-link">See More</a>
+                      </div>
+                    </div>
+                </div>
 
-				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 rev">
-		 			<div class="card">
-					  <img class="card-img-top" src="links/images/casepics/finalcases.jpg" alt="Card image">
-					  <div class="card-body">
-					    <h4 class="card-title">Case Revolution</h4>
-					    <p class="card-text">An online business I started that sold iPhone cases & T-Shirts of popular internet memes.</p>
-					    <a href="links/caserevolution.html" class="btn btn-primary">See More</a>
-					  </div>
-					</div>
-		 		</div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 revt">
+                    <div class="card">
+                      <img class="card-img-top" src="links/images/CADpics.png" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">CAD Modeling</h4>
+                        <p class="card-text">Pictured is the pong-pong ball launcher and the adjustable iPhone holder. Created with Solidworks.</p>
+                        <a href="links/solidworks.html" class="btn btn-primary">See More</a>
+                      </div>
+                    </div>
+                </div>
 
-		 		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 rev">
-			  		<div class="card">
-					  <img class="card-img-top" src="links/images/light.jpg" alt="Card image">
-					  <div class="card-body">
-					    <h4 class="card-title">Microcontroller-based Projects</h4>
-					    <p class="card-text">Projects I've built in the past few years.</p>
-					    <a href="links/arduino.html" class="btn btn-primary">See More</a>
-					  </div>
-					</div>
-			  	</div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 re">
+                    <div class="card">
+                      <img class="card-img-top" src="links/images/finalgripper.jpg" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">Credit Card Gripper</h4>
+                        <p class="card-text">Group project aimed at designing credit card gripper for client with limited hand mobility who wishes to have more freedom at the ATM.</p>
+                        <a href="links/cardgripper.html" class="btn btn-primary stretched-link">See More</a>
+                      </div>
+                    </div>
+                </div>
 
-				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 re">
-					<div class="card">
-					  <img class="card-img-top" src="links/images/dronepics/dronepic.jpg" alt="Card image">
-					  <div class="card-body">
-					    <h4 class="card-title">Solar Powered Drone</h4>
-					    <p class="card-text">Rechargeable, solar-powered drone that can pick up and drop off a payload.</p>
-					    <a href="links/drone.html" class="btn btn-primary stretched-link">See More</a>
-					  </div>
-					</div>
-				</div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 rev">
+                    <div class="card">
+                      <img class="card-img-top" src="links/images/casepics/finalcases.jpg" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">Case Revolution</h4>
+                        <p class="card-text">An online business I started that sold iPhone cases & T-Shirts of popular internet memes.</p>
+                        <a href="links/caserevolution.html" class="btn btn-primary">See More</a>
+                      </div>
+                    </div>
+                </div>
 
-				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 rev">
-		 			<div class="card">
-					  <img class="card-img-top" src="links/images/gitletpics/reset.jpg" alt="Card image">
-					  <div id="hi" class="card-body">
-					    <h4 class="card-title">Gitlet</h4>
-					    <p class="card-text">Scaled-down product of the Git version control system. Built in Java.</p>
-					    <a href="links/gitlet.html" class="btn btn-primary">See More</a>
-					  </div>
-					</div>
-		 		</div>
-				
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 rev">
+                    <div class="card">
+                      <img class="card-img-top" src="links/images/light.jpg" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">Microcontroller-based Projects</h4>
+                        <p class="card-text">Projects I've built in the past few years.</p>
+                        <a href="links/arduino.html" class="btn btn-primary">See More</a>
+                      </div>
+                    </div>
+                </div>
 
-		 		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 revt">
-		 			<div class="card">
-					  <img class="card-img-top" src="links/images/windmillpics/windmillcover.jpg" alt="Card image">
-					  <div class="card-body">
-					    <h4 class="card-title">3D Printed Windmill</h4>
-					    <p class="card-text">Windmill design project aimed at ensuring structural stability and blade power efficiency.</p>
-					    <a href="links/windmill.html" class="btn btn-primary">See More</a>
-					  </div>
-					</div>
-		 		</div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 re">
+                    <div class="card">
+                      <img class="card-img-top" src="links/images/dronepics/dronepic.jpg" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">Solar Powered Drone</h4>
+                        <p class="card-text">Rechargeable, solar-powered drone that can pick up and drop off a payload.</p>
+                        <a href="links/drone.html" class="btn btn-primary stretched-link">See More</a>
+                      </div>
+                    </div>
+                </div>
 
-			
-			</div>
-			  </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 rev">
+                    <div class="card">
+                      <img class="card-img-top" src="links/images/gitletpics/reset.jpg" alt="Card image">
+                      <div id="hi" class="card-body">
+                        <h4 class="card-title">Gitlet</h4>
+                        <p class="card-text">Scaled-down product of the Git version control system. Built in Java.</p>
+                        <a href="links/gitlet.html" class="btn btn-primary">See More</a>
+                      </div>
+                    </div>
+                </div>
+                
 
-		</div>
-		<div class="footer-copyright text-center py-3">Created by Kyle Pedersen using HTML/CSS, Javascript, and Bootstrap. Hosted through GitHub using Netlify.</div>
-		<script>
-			ScrollReveal().reveal(".rev");
-			ScrollReveal().reveal(".revt", {delay: 75});
-		</script>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 revt">
+                    <div class="card">
+                      <img class="card-img-top" src="links/images/windmillpics/windmillcover.jpg" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">3D Printed Windmill</h4>
+                        <p class="card-text">Windmill design project aimed at ensuring structural stability and blade power efficiency.</p>
+                        <a href="links/windmill.html" class="btn btn-primary">See More</a>
+                      </div>
+                    </div>
+                </div>
 
-	</body>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</html>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-copyright text-center py-3">
+        Created by Kyle Pedersen using HTML/CSS, Javascript, and Bootstrap. Hosted through GitHub using Netlify.
+    </footer>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script>
+        ScrollReveal().reveal(".card");
