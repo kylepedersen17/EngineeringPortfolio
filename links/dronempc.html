@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Autonomous Window Cleaner</title>
+	<title>Drone Swarm Path Planning</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/arduino.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -9,80 +9,69 @@
 <body>
 	<div class="container">
 		<a class="btn btn-primary" id="backbtn" href="#" onclick="history.go(-1)" role="button">Back</a>
-		<h1>Drone MPC</h1>
+		<h1>Drone Swarm Path Planning</h1>
 
 		<div id="light">
-			<div class="iframe-container" align="center">
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/Df_9U8uVw64" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrsypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-			<hr>
 			<p id="about1">
-				This project was completed in the fall 2021 semester as a part of the UC Berkeley ME102B class (Mechatronics Design) — I worked on it with my project partner in a group of two. We sought to provide a prototype aimed at cleaning windows without the requirement of a human. We viewed this as a way to improve worker safety and productivity. Initially, we envisioned our cleaner to be suspended at each corner by four cables. This rope would be winched in and out by four separate gearmotors allowing the robot to move. The cleaner would push against the window by manipulating its center of gravity. In the end, because of cost and difficult kinematics we opted for a cartesian system with linear motion in the x axis (along the building) and a winch to raise and lower the cleaner in the y axis (up and down the building). Additionally, we used powered fans to press the cleaner against the window instead of a weight shift mechanism. 
+				Modern day quadcopter technology allows for intricate light shows that feature multiple drones in coordination moving from one location to the next. It is unclear if current implementations utilize optimal control policies for their movement, so we set out to incorporate model predictive control (MPC) into a central planner & controller to coordinate the movement of multiple drone agents. The MPC algorithm takes in a target location and returns the reference trajectory and closed-loop control input that drive each agent to its respective destination while avoiding collisions with other agents. In our results, we found, as expected, that increasing the number of agents significantly increased the runtime, but we were successful in controlling up to 4 agents going from their own starting and ending positions.
+			</p>
+
+			<div class="row justify-content-center">
+			    <div class="col-md-6">
+			        <img class="img-fluid threee" id="ppro" src='images/dronempc/lightshow.jpg'>
+			        <figcaption class="figure-caption">Drone show</figcaption>
+			    </div>
+			</div>
+
+			<p id="about1">
+				Quadcopters are an emerging technology utilized within a range of applications throughout multiple societal and governmental sectors that include, but are not limited to, wildfire surveillance, unoccupied land surveillance, weather broadcasting, and nuclear power plant inspections2, 3. In many situations, multiple drones would be needed to effectively and/or efficiently handle an objective2. However, this sets up an obstacle for the drones to situate their space and movement within their environment to avoid collisions with other drones. Furthermore, it would add to their efficiency to optimize their paths from point A to point B. Therefore, our objective is to deal with that situation via a multi-agent model predictive control (MPC) system. And for our setting, we plan to position the drones within a 3D environment, in such a way that would outline an image within an open space. Throughout our design, we consider crucial drone dynamics that are presented within any quadcopter, and model a MPC algorithm that minimizes the route a drone takes to reach their destination. We then simulate the results and discuss the limitations and benefits of our control system.
+
 			</p>
 			
-
-			<hr>
-			<h5 >Final Design</h5>
-			<div class="row">
-				<img class="col-lg-12 threee" id="ppro" src='images/cleaner/fig1.png' width="300">
-			</div>
-
-
-			<div class="row">
-				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/fig2.png' width="300">
-				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/fig3.png' width="300">
-				
-			</div>
-
-			<hr>
-
-			<h5 >Wiring Schematic & Finite State Machine</h5>
-			<div class="row">
-				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/wiring.png' width="300">
-				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/fsm.png' width="300">
-			</div>
-
-
-			<figcaption class="figure-caption">The wiring schematic (left) features the two brushless motors powered by a LIPO battery. They are controlled by a single PWM pin. There are four h-bridges: one for the bipolar stepper motor, one for the winch motor, one for the dc cleaner motor, and one for the peristaltic pump. The latter two are used effectively as relays, since they are more compact. Lastly, the bottom right features the ultrasonic sensor, idle button, and limit switches. The finite state machine is pictured to the right, and its functionality is explained below.</figcaption>
 			<hr>
 			<p id="about1">
-				The finite state machine enabled the cleaner's functionality to be easily programmed in a logical way using switch-case logic and event checker and service functions. Here are the states:
+				We use a state space quadcopter model as defined in “Mathematical Modelling of a Quadrotor.”4 In this paper, the model features a 6DOF quadcopter with four rotors derived from Newtonian equations of motion. Along with x, y, and z position, the drones rotational angles (yaw, pitch, and roll) are defined with ψ, θ, and φ. To add on to the state vector, the time derivatives of each of these 6 states are included, leaving the final state vector in ℝ12.
 			</p>
-			<ul>
-				<li><strong>Idling: </strong>When the device is turned on, it is in the idling state. Nothing is actuated, but when the push button is pressed, it enters the <strong>Pull Cables</strong> state.</li>
-				<li><strong>Pull Cables: </strong>This state acts as a vertical calibration state. The winch motor is activated, pulling up the cleaning box via its string until the top of the box hits the vertical limit switch — when this occurs, it enters the <strong>Calibrate Left</strong> state. Throughout the <strong>Pull Cables</strong> state, the winch motor's encoder is used to implement a PI controller for the winch motor's angular velocity. This allows the winch motor to wind up even under the weight of the cleaner box.</li>
-				<li><strong>Calibrate Left: </strong>In this state, the winch motor is turned off, and the stepper motor moves the crane left until the horizontal limit switch is hit. Once achieved, the stepper motor shuts off, and the device enters the <strong>Clean Down</strong> state.</li>
-				<li><strong>Clean Down: </strong>In this state, the cleaner motor is turned on, activating the foam rollers. The sprayer and brushless fans are activated along with the winch motor in the downward direction.</li>
-				<li><strong>Disengage Down: </strong>If an intermediate window divider is detected by the ultrasonic sensor, the fans, sprayer, and rollers are turned off, and the box is moved down. It is not pressed against the window due to the fans being turned off, allowing it to move across a window divider. After the specified distance is travelled via the winch encoder, the <strong>Clean Down</strong> state is reactivated.</li>
-				<li><strong>Move Up: </strong> If the total building height has been travelled, and the ultrasonic sensor detects the ground, the cleaner, sprayer, and fans are turned off, and the winch pulls the box back up to the top (until the vertical limit switch). The stepper motor then moves right to the next column, and the process continues.</li>
-			</ul>
-			<hr>
-
-			<h5 >CAD Modeling</h5>
-			<div class="row">
-				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/cad1.png' width="300">
-				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/cad2.png' width="300">
-			</div>
-			<div class="row">
-				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/cad3.png' width="300">
-				<img class="col-lg-6 threee" id="ppro" src='images/cleaner/cad4.png' width="300">
-			</div>
-
-			<figcaption class="figure-caption">Pictured above are initial CAD designs. The top row was the first design iteration, and the second row is the final design iteration beforee fabrication. The first design of the box did not have the brushless fans, as the issue with pressing the box against the window was not realized yet. The foam rollers with the belt drive was kept, with the DC motor moved to the corner. The water tank idea was switched to using a water bottle in the corner, which allowed the side walls to be uniform in height. The crane design largely remained the same, but another rail was added through the stepper motor for stability. The winch motor was also moved to the top rather than being inside for gear ratio purposes.</figcaption>
-
-			<hr>
-			<div class="row">
-				<img class="col-lg-4 threee" id="ppro" src='images/cleaner/drone_props.png' width="300">
-				<img class="col-lg-4 threee" id="ppro" src='images/cleaner/sprayer_ultra.png' width="300">
-				<img class="col-lg-4 threee" id="ppro" src='images/cleaner/bottom.png' width="300">
-			</div>
-
-			<figcaption class="figure-caption">Pictured from left to right: one of the brushless fan motors, the exterior sprayer nozzle with the ultrasonic sensor (taped for testing), and the foam rollers with belt drive.</figcaption>
-
-			<hr>
 			<p id="about1">
-				A strategy that worked well is isolating certain subsystems and repeatedly testing them on their own so that when the entire device was integrated, more of the focus could be on assessing the performance of the device as a whole. While this did work—we reliably had each subsystem working well—we integrated and tested the entire device a bit too late, and overlooked certain aspects of its mechanical performance. An example is the weight distribution issue of the cleaner. We spent so much time building, designing, and testing each individual subsystem, that when we fully integrated everything, we found that the cleaner had too much weight on its left side. Had we known this earlier, we could have moved around certain components. 
+			For the MPC algorithm to reference the target position, the spatial coordinates of the target position were subtracted from the current state. The cost function was designed to weight the position states most, while the inputs were not weighted through our choice of the control matrix.
 			</p>
+
+			<div class="container">
+			    <div class="row">
+			        <div class="col-md-6">
+			            <img class="img-fluid threee" id="ppro" src='images/dronempc/mpcmath1.jpg'>
+			        </div>
+			        <div class="col-md-6">
+			            <img class="img-fluid threee" id="ppro" src='images/dronempc/mpcmath2.jpg'>
+			        </div>
+			    </div>
+			</div>
+
+			<p id="about1">
+				Notable in every example is the presence of MPC-based overshoot for each agent. This is largely due to the formulation of our cost function — while velocity is theoretically minimized, it accounts for only a tiny fraction of the cost function. As a result, our model will generally attempt to overshoot the destination, opting to get as close to the final position as quickly as possible, with the velocity objectives only coming into practical effect as the agentss settle on their final position.	
+			</p>
+
+			<div class="row justify-content-center">
+			    <div class="col-md-6">
+			        <img class="img-fluid threee" id="ppro" src='images/dronempc/droneplots.jpg'>
+			        <figcaption class="figure-caption">Drone plots</figcaption>
+			    </div>
+			</div>
+
+		<p id="about1">
+			This overshoot is also reflected in our optimal costs, which, while tending to decrease, were not always monotonically decreasing. This is in addition to feasibility errors we’d come across when we ran our simulation with too small a time horizon or distant end positions (encouraging high velocities that led to collisions). In addition, it’s worth noting that this algorithm’s runtime — especially as the number of agents increases — would not be suitable for online calculation, but rather an offline method of path generation.
+		</p>
+
+		<p id="about1">
+			While it is definitely possible to use centralized MPC for path planning, path following, and collision avoidance, doing it for the number of agents involved in a drone light show is computationally infeasible. This is because the number of state variables increases linearly with the number of agents, which causes the size of the matrices defining state dynamics to increase quadratically. This is especially an issue with the time varying and non-linear B matrices used to model the effects of different inputs. However, we showed that MPC can be a flexible and robust method for central control of small numbers of drones. 
+			
+		</p>
+
+		<p id="about1">
+			More efficient methods could involve precomputing flight paths and using an MPC solely for path following and collision avoidance for each quadcopter. Researchers have also been able to limit the size of the MPC problem, namely through decentralization.5 By creating a communication protocol between every drone in a flock, it is possible to use a separate MPC to plan and follow paths for each drone while still guaranteeing collision avoidance.
+
+		</p>
+
 		</div>
 
 		
