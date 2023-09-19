@@ -19,18 +19,18 @@
 			<div class="row justify-content-center">
 			    <div class="col-md-6">
 			        <img class="img-fluid threee" id="ppro" src='images/dronempc/lightshow.jpg'>
-			        <figcaption class="figure-caption">Drone show</figcaption>
+			        <figcaption class="figure-caption">A drone light show was the inspiration for this example project. Drones form sequences of images and need to optimally portray the next image without colliding.</figcaption>
 			    </div>
 			</div>
 
 			<p id="about1">
-				Quadcopters are an emerging technology utilized within a range of applications throughout multiple societal and governmental sectors that include, but are not limited to, wildfire surveillance, unoccupied land surveillance, weather broadcasting, and nuclear power plant inspections2, 3. In many situations, multiple drones would be needed to effectively and/or efficiently handle an objective2. However, this sets up an obstacle for the drones to situate their space and movement within their environment to avoid collisions with other drones. Furthermore, it would add to their efficiency to optimize their paths from point A to point B. Therefore, our objective is to deal with that situation via a multi-agent model predictive control (MPC) system. And for our setting, we plan to position the drones within a 3D environment, in such a way that would outline an image within an open space. Throughout our design, we consider crucial drone dynamics that are presented within any quadcopter, and model a MPC algorithm that minimizes the route a drone takes to reach their destination. We then simulate the results and discuss the limitations and benefits of our control system.
+				Quadcopters are an emerging technology utilized within a range of applications throughout multiple societal and governmental sectors that include, but are not limited to, wildfire surveillance, unoccupied land surveillance, weather broadcasting, and nuclear power plant inspections. In many situations, multiple drones would be needed to effectively and/or efficiently handle an objective2. However, this sets up an obstacle for the drones to situate their space and movement within their environment to avoid collisions with other drones. Furthermore, it would add to their efficiency to optimize their paths from point A to point B. Therefore, our objective is to deal with that situation via a multi-agent model predictive control (MPC) system. And for our setting, we plan to position the drones within a 3D environment, in such a way that would outline an image within an open space. Throughout our design, we consider crucial drone dynamics that are presented within any quadcopter, and model a MPC algorithm that minimizes the route a drone takes to reach their destination. We then simulate the results and discuss the limitations and benefits of our control system.
 
 			</p>
 			
 			<hr>
 			<p id="about1">
-				We use a state space quadcopter model as defined in “Mathematical Modelling of a Quadrotor.”4 In this paper, the model features a 6DOF quadcopter with four rotors derived from Newtonian equations of motion. Along with x, y, and z position, the drones rotational angles (yaw, pitch, and roll) are defined with ψ, θ, and φ. To add on to the state vector, the time derivatives of each of these 6 states are included, leaving the final state vector in ℝ12.
+				We use a state space quadcopter model as defined in “Mathematical Modelling of a Quadrotor.” In this paper, the model features a 6DOF quadcopter with four rotors derived from Newtonian equations of motion. Along with x, y, and z position, the drones rotational angles (yaw, pitch, and roll) are defined with ψ, θ, and φ. To add on to the state vector, the time derivatives of each of these 6 states are included, leaving the final state vector in ℝ12.
 			</p>
 			<p id="about1">
 			For the MPC algorithm to reference the target position, the spatial coordinates of the target position were subtracted from the current state. The cost function was designed to weight the position states most, while the inputs were not weighted through our choice of the control matrix.
@@ -45,7 +45,10 @@
 			            <img class="img-fluid threee" id="ppro" src='images/dronempc/mpcmath2.jpg'>
 			        </div>
 			    </div>
+			    <figcaption class="figure-caption">The two matrices on the left are the state and control input matrices, respectively. These are then used for the MPC model on the right side, which is solved at each time step using the additional collision constraints. </figcaption>
 			</div>
+
+			<hr>
 
 			<p id="about1">
 				Notable in every example is the presence of MPC-based overshoot for each agent. This is largely due to the formulation of our cost function — while velocity is theoretically minimized, it accounts for only a tiny fraction of the cost function. As a result, our model will generally attempt to overshoot the destination, opting to get as close to the final position as quickly as possible, with the velocity objectives only coming into practical effect as the agentss settle on their final position.	
@@ -54,7 +57,7 @@
 			<div class="row justify-content-center">
 			    <div class="col-md-6">
 			        <img class="img-fluid threee" id="ppro" src='images/dronempc/droneplots.jpg'>
-			        <figcaption class="figure-caption">Drone plots</figcaption>
+			        <figcaption class="figure-caption">These are sample drone trajectories for one to four drones, each of which going from a beginning "image" to a final "image."</figcaption>
 			    </div>
 			</div>
 

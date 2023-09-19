@@ -19,6 +19,7 @@
 
 <div class="container mt-4">
 
+    <a class="btn btn-primary" id="backbtn" href="#" onclick="history.go(-1)" role="button">Back</a>
     <h1 class="text-center mb-4">Ball & Beam Trajectory Tracking</h1>
 
     <div class="row justify-content-center">
@@ -28,11 +29,11 @@
     </div>
 
 
-    <p>This report presents an analysis of a physical ball and beam model, comparing the performance of two different control algorithms, namely PID and LQI, and discussing some of the differences between the real-life results and simulation. The objective of this study is to evaluate the performance of these two control algorithms in achieving the desired trajectory and to explore some of the factors that may affect the accuracy of the simulation.</p>
+    <p>This report presents an analysis of a physical ball and beam model, comparing the performance of two different control algorithms, namely PID and LQI, and discussing some of the differences between the real-life results and simulation. I worked on this project in a group of three, and the objective of this study was to evaluate the performance of these two control algorithms in achieving the desired trajectory and to explore some of the factors that may affect the accuracy of the simulation. In the ball and beam device, the beam is balanced using a servo motor, and the ball is tracked at the end with an ultrasonic sensor. The ball position is read at each timestep, and the estimation algorithm (we used the Extended Kalman Filter) estimates the balls true position. The controller then outputs a voltage value for the servo motor that determinest the servo motor's position.</p>
     <hr>
 
     <h2 class="text-center mt-4">Best-Performing Controller</h2>
-    <p>On the physical hardware, we choose to test two different controllers, the PID and LQI described in the previous report. The PID gave by far the best performance with a score of 2.59, while the LQI got a score of 6.79. These scores were achieved after attempted tuning for the two methods.</p>
+    <p>On the physical hardware, we choose to test two different controllers, the PID and LQI described in the previous report. Each controller was given a score based on the tracking performance and energy consumption, with the lower score being better. The PID gave by far the best performance with a score of 2.59, while the LQI got a score of 6.79. These scores were achieved after attempted tuning for the two methods.</p>
     <hr>
 
     <h3 class="text-center mt-4">PID Controller</h3>
@@ -43,31 +44,31 @@
     <div class="row text-center">
         <div class="col-md-6">
             <img src="images/ballbeam/bbfig1.jpg" alt="Placeholder for LQI Experiment, Score = 6.79 image" class="img-fluid">
-            <p class="text-muted">Figure 3: LQI Experiment, Score = 6.79</p>
+            <p class="text-muted">Figure 1: The PID controller experiment, where the dotted red line is the desired state, and the blue line is the actual state.</p>
         </div>
 
         <div class="col-md-6">
             <img src="images/ballbeam/bbfig2.jpg" alt="Placeholder for LQI Control History image" class="img-fluid">
-            <p class="text-muted">Figure 4: LQI Control History</p>
+            <p class="text-muted">Figure 2: The input voltage as determined by the PID controller to the servo to track the reference path.</p>
         </div>
     </div>
 
     <hr>
 
     <h3 class="text-center mt-4">LQI Controller</h3>
-    <p>The Linear Quadratic Integrator (LQI) scored higher than the PID, resulting in a value of 6.79. From our analysis, the LQI showed a more aggressive control action, which made it more susceptible to noise and disturbances. This aggressive behavior could be seen in the state history plots, where the ball position does not settle as fast as in the PID control.</p>
+    <p>The Linear Quadratic Integrator (LQI) scored higher than the PID, resulting in a value of 6.79. This controller utilizes a traditional LQR controller with an additional term for the tracking error. From our analysis, the LQI showed a more aggressive control action, which made it more susceptible to noise and disturbances. This aggressive behavior could be seen in the state history plots, where the ball position does not settle as fast as in the PID control.</p>
 
     <p>Tuning the LQI was more challenging due to the additional state introduced for integral action. The tuning parameters for the LQR and the integrator weight required iterative experimentation to achieve a balance between tracking performance and control action.</p>
 
     <div class="row text-center">
         <div class="col-md-6">
             <img src="images/ballbeam/bbfig3.jpg" alt="Placeholder for LQI Experiment, Score = 6.79 image" class="img-fluid">
-            <p class="text-muted">Figure 3: LQI Experiment, Score = 6.79</p>
+            <p class="text-muted">Figure 3: The LQI controller experiment, where the dotted red line is the desired state, and the blue line is the actual state.</p>
         </div>
 
         <div class="col-md-6">
             <img src="images/ballbeam/bbfig4.jpg" alt="Placeholder for LQI Control History image" class="img-fluid">
-            <p class="text-muted">Figure 4: LQI Control History</p>
+            <p class="text-muted">Figure 4: The input voltage as determined by the LQI controller to the servo to track the reference path.</p>
         </div>
     </div>
 
@@ -86,7 +87,7 @@
 
     <p>Tuning our EKF required adjustments in covariance matrices to balance measurements and model predictions, as well as recalibrating the initial state to account for the ball's placement on the beam. As trust in our model waned, the EKF's estimates understandably deteriorated on the real system but remained sufficiently competent for trajectory tracking.</p>
 
-    <p>Finally, the controller tuning posed its own challenges. The Proportional-Integral-Derivative (PID) controller demanded reductions in both its proportional and derivative components. Conversely, for the Linear Quadratic Integrator (LQI), we had to amplify penalties on position errors and velocities, while also moderating the input's penalization. Notably, even after these tweaks, the LQI's tracking in the real-world setup didn't match its simulated prowess.</p>
+    <p>Finally, the controller tuning posed its own challenges. The PID controller demanded reductions in both its proportional and derivative components. Conversely, for the LQI, we had to amplify penalties on position errors and velocities, while also moderating the input's penalization. Notably, even after these tweaks, the LQI's tracking in the real-world setup didn't match its simulated prowess.</p>
 
 </div>
 
