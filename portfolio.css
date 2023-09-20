@@ -8,6 +8,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+
 h1, h4 {
     color: #24416D; /* Deep cerulean blue for Headings */
 }
@@ -71,3 +72,4 @@ h1, h4 {
 .card-content {
     padding: 15px;
 }
+
